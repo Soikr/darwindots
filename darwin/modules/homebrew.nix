@@ -16,7 +16,12 @@
     brews = [];
     casks = [
       "keepassxc"
-      #"zirixcz/vesktop/vesktop"
+      "discord"
+      "librewolf"
+      "vial"
+      "jetbrains-toolbox"
+      "blender"
+      "steam"
     ];
     taps = [];
 
