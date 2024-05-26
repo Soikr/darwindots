@@ -22,6 +22,7 @@
       "jetbrains-toolbox"
       "blender"
       "steam"
+      "nikitabobko/tap/aerospace"
     ];
     taps = [];
 

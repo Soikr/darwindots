@@ -3,6 +3,7 @@
   imports = [
     ./modules/zsh.nix
     ./modules/git.nix
+    ./modules/aerospace
   ];
 
   home = {

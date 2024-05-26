@@ -38,7 +38,8 @@
       };
 
       NSGlobalDomain = {
-        AppleInterfaceStyle = "Dark";
+        NSWindowShouldDragOnGesture = true;
+	AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
