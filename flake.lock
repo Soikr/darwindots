@@ -143,7 +143,8 @@
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "sketchybar": "sketchybar"
       }
     },
     "rust-analyzer-src": {
@@ -160,6 +161,22 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "sketchybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710776977,
+        "narHash": "sha256-vo/PmrYlrg6kwBbFtrwbTZffLrQgzTSuqVxfNQba3YI=",
+        "owner": "FelixKratz",
+        "repo": "dotfiles",
+        "rev": "1589c769e28f110b1177f6a83fa145235c8f7bd6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "dotfiles",
         "type": "github"
       }
     }

@@ -24,6 +24,11 @@
       url = "github:kamadorueda/alejandra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sketchybar = {
+      url = "github:FelixKratz/dotfiles";
+      flake = false;
+    };
  
   };
 

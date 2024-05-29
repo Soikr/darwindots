@@ -13,18 +13,28 @@
 
     masApps = {};
     
-    brews = [];
+    brews = [
+      "sketchybar"
+    ];
     casks = [
       "keepassxc"
       "discord"
       "librewolf"
       "vial"
-      "jetbrains-toolbox"
       "blender"
       "steam"
-      "nikitabobko/tap/aerospace"
+      "aerospace"
+      "vscodium"
+      "jetbrains-toolbox"
     ];
-    taps = [];
+    taps = [
+      "FelixKratz/formulae"
+      "nikitabobko/tap"
+    ];
+
+    caskArgs = {
+      no_quarantine = true;
+    };
 
   };
 

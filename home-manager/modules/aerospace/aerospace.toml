@@ -1,5 +1,7 @@
 # Reference: https://github.com/i3/i3/blob/next/etc/config
 
+start-at-login = true
+
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 
@@ -28,6 +30,7 @@ alt-h = 'split horizontal'
 alt-v = 'split vertical'
 
 alt-f = 'fullscreen'
+ctrl-f = 'macos-native-fullscreen'
 
 alt-s = 'layout v_accordion' # 'layout stacking' in i3
 alt-w = 'layout h_accordion' # 'layout tabbed' in i3
