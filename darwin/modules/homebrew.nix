@@ -14,18 +14,45 @@
     masApps = {};
     
     brews = [
+
+      # System
       "sketchybar"
+
+      # Lua/Roblox Development
+      "lua"
+      "lua-language-server"
+      "rojo"
+      "stylua"
+      "selene"
+      "roblox-ts"
+
+      # JS Dev
+      "node"
+      "typescript"
+      "typescript-language-server"
+
     ];
     casks = [
+
+      #Primary
       "keepassxc"
       "discord"
       "librewolf"
-      "vial"
-      "blender"
       "steam"
+
+      # Production
+      "blender"
+      "zed"
+
+      # Minecraft
+      "prismlauncher"
+      "graalvm-jdk@21"
+
+      # Extra
+      "vial"
       "aerospace"
-      "vscodium"
-      "jetbrains-toolbox"
+      "font-jetbrains-mono"
+
     ];
     taps = [
       "FelixKratz/formulae"
