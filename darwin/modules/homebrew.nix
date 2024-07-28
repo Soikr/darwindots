@@ -1,68 +1,72 @@
-{ ... }: {
-
+{...}: {
   homebrew = {
     enable = true;
 
-    global = {
-      brewfile = true;
-    };
+    onActivation = {cleanup = "zap";};
 
-    onActivation = {
-      cleanup = "zap";
-    };
+    taps = [
+      # Default
+      "homebrew/bundle"
+      "homebrew/services"
 
-    masApps = {};
-    
-    brews = [
+      # Sketchybar
+      "FelixKratz/formulae"
 
-      # System
-      "sketchybar"
+      # Aerosapce
+      "nikitabobko/tap"
 
-      # Lua/Roblox Development
-      "lua"
-      "lua-language-server"
-      "rojo"
-      "stylua"
-      "selene"
-      "roblox-ts"
-
-      # JS Dev
-      "node"
-      "typescript"
-      "typescript-language-server"
-
+      # Personal
+      "SoiKr/meowulae"
     ];
-    casks = [
 
-      #Primary
-      "keepassxc"
-      "discord"
-      "librewolf"
-      "steam"
+    casks = [
+      # Primary
+      "firefox"
+      "vesktop"
 
       # Production
       "blender"
-      "zed"
+      "gimp"
+      "kitty"
+      "vscodium"
+      "jetbrains-toolbox"
 
-      # Minecraft
+      # Games
+      "steam"
+
       "prismlauncher"
       "graalvm-jdk@21"
+      "graalvm-jdk@17"
 
-      # Extra
+      # Utilities
+      "keepassxc"
       "vial"
-      "aerospace"
+
+      # Fonts
       "font-jetbrains-mono"
 
+      # System Management
+      "aerospace"
     ];
-    taps = [
-      "FelixKratz/formulae"
-      "nikitabobko/tap"
+
+    brews = [
+      # System
+      "sketchybar"
+      "borders"
+
+      # Development
+      "lua"
+      "rojo"
+
+      "node"
+      "typescript"
+
+      "rustup-init"
     ];
 
     caskArgs = {
+      appdir = "~/Applications";
       no_quarantine = true;
     };
-
   };
-
 }

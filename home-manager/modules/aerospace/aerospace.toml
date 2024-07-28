@@ -55,7 +55,7 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-0 = 'workspace 10'
+alt-m = 'workspace M'
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -79,3 +79,14 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+if.window-title-regex-substring = 'Picture-in-Picture'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.prismlauncher.PrismLauncher'
+if.window-title-regex-substring = 'Console window for Create Ctapak Main'
+check-further-callbacks = true
+run = ['layout floating', 'move-node-to-workspace M']

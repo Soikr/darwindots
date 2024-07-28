@@ -1,7 +1,5 @@
-{ pkgs, ...}: {
-  imports = [
-  ./modules/homebrew.nix
-  ];
+{pkgs, ...}: {
+  imports = [./modules/homebrew.nix];
 
   environment = {
     variables = {
@@ -10,24 +8,17 @@
     };
   };
 
-  programs = {
-    zsh.enable = true;
-  };
+  programs = {zsh.enable = true;};
 
-  services = {
-    nix-daemon.enable = true;
-  };
+  services = {nix-daemon.enable = true;};
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    ];
+    fonts = with pkgs; [(nerdfonts.override {fonts = ["JetBrainsMono"];})];
   };
 
   system = {
     defaults = {
-
       dock = {
         autohide = true;
         orientation = "bottom";
@@ -41,13 +32,14 @@
 
       NSGlobalDomain = {
         NSWindowShouldDragOnGesture = true;
-	AppleInterfaceStyle = "Dark";
+        AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
         "com.apple.swipescrolldirection" = false;
         "com.apple.sound.beep.feedback" = 0;
-      }; 
+        "com.apple.keyboard.fnState" = true;
+      };
     };
   };
 }

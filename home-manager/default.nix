@@ -1,43 +1,33 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   imports = [
     ./modules/zsh.nix
     ./modules/git.nix
     ./modules/aerospace
+    ./modules/jankyborders
+    ./modules/firefox
   ];
 
   home = {
-    packages = with pkgs; [
-      neovim
-    ];
+    packages = with pkgs; [neovim];
 
-    sessionPath = [
-      "$HOME/.local/go/bin"
-      "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
-    ];
+    sessionPath = ["$HOME/.local/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin"];
 
     sessionVariables = {
       NIXPKGS_ALLOW_UNFREE = "1";
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
-
   };
 
   programs = {
     home-manager.enable = true;
 
-    starship = {
-      enable = true;
-    };
+    starship = {enable = true;};
 
     go = {
       enable = true;
       goPath = "go";
       goBin = ".local/go/bin";
     };
-
   };
-
 }
