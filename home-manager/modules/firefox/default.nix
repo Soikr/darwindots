@@ -15,6 +15,9 @@
 
     profiles.Nixfox = {
       isDefault = true;
+      id = 0;
+      name = "Nixfox";
+
       search = {
         default = "DuckDuckGo";
         force = true;
