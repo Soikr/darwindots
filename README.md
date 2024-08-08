@@ -51,6 +51,8 @@ darwin-rebuild switch --flake .
 darwin-rebuild switch --flake ~/.
 ```
 
+Please reboot after this.
+
 > [!WARNING]  
 > I have set homebrew and its applications to not update and upgrade automatically through use of darwin-rebuild. Please use brew update and brew upgrade for this.
 
