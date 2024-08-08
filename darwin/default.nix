@@ -1,5 +1,7 @@
 {pkgs, ...}: {
-  imports = [./modules/homebrew.nix];
+  imports = [
+    ./modules/homebrew.nix
+  ];
 
   environment = {
     variables = {

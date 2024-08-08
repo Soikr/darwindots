@@ -2,7 +2,7 @@
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
-    enableCompletion = true;
+    enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
 
@@ -14,25 +14,36 @@
       size = 1000;
     };
 
-    shellAliases = {dr = "darwin-rebuild switch --flake";};
+    shellAliases = {
+      ll = "ls -l";
+      la = "ls -a";
+      lla = "ls -al";
 
-    prezto = {
-      enable = true;
-      caseSensitive = false;
-      editor = {
-        dotExpansion = true;
-        keymap = "vi";
-      };
-      pmodules = [
-        "autosuggestions"
-        "command-not-found"
-        "editor"
-        "git"
-        "syntax-highlighting"
-        "terminal"
-        "directory"
-        "completion"
-      ];
+      # Nix
+      dr = "darwin-rebuild switch --flake ~/.nixconf";
+      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixconf";
+      nsh = "nix-shell";
+      ns = "nix search nixpkgs";
+      ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
     };
+
+    plugins = [
+      {
+        name = "nix-zsh-shell";
+        src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
+      }
+      {
+        name = "nix-zsh-completions";
+        src = "${pkgs.nix-zsh-completions}/share/zsh/site-functions";
+      }
+      {
+        name = "zsh-fast-syntax-highlighting";
+        src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
+      }
+      {
+        name = "zsh-fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
+    ];
   };
 }

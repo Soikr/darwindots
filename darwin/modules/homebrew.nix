@@ -2,7 +2,11 @@
   homebrew = {
     enable = true;
 
-    onActivation = {cleanup = "zap";};
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = false;
+      upgrade = false;
+    };
 
     taps = [
       # Default
@@ -23,22 +27,32 @@
       # Primary
       "firefox"
       "vesktop"
+      "obs"
 
       # Production
       "blender"
       "gimp"
       "kitty"
       "vscodium"
+      "kdenlive"
+      "siyuan"
+      "wireshark"
+      "godot"
       "jetbrains-toolbox"
 
       # Games
       "steam"
 
+      "roblox"
+      "robloxstudio"
+
       "prismlauncher"
       "graalvm-jdk@21"
       "graalvm-jdk@17"
+      "craftos-pc-accelerated"
 
       # Utilities
+      "utm"
       "keepassxc"
       "vial"
 
@@ -47,21 +61,23 @@
 
       # System Management
       "aerospace"
+      "macfuse"
     ];
 
     brews = [
       # System
       "sketchybar"
       "borders"
+      "syncthing"
+
+      # Utilities
+      "sniffnet"
 
       # Development
-      "lua"
       "rojo"
 
-      "node"
-      "typescript"
-
-      "rustup-init"
+      # Extra
+      "openjdk@8"
     ];
 
     caskArgs = {

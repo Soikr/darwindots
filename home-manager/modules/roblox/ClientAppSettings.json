@@ -1,0 +1,44 @@
+{
+"FFlagDebugGraphicsDisableDirect3D11": "True",
+"FFlagDebugGraphicsDisableMetal": "True",
+"FFlagDebugGraphicsPreferVulkan": "True",
+"DFFlagDisableDPIScale": "False",
+
+"FFlagDebugCheckRenderThreading": "True",
+"FFlagRenderDebugCheckThreading2": "True",
+
+"DFIntDebugRestrictGCDistance": "8",
+"FFlagNewLightAttenuation": "True",
+"FFlagFastGPULightCulling3": "True",
+"DFIntMaxFrameBufferSize": "4",
+"FIntDebugForceMSAASamples": "0",
+
+"DFIntCSGLevelOfDetailSwitchingDistance": "0",
+"DFIntCSGLevelOfDetailSwitchingDistanceL12": "0",
+"DFIntCSGLevelOfDetailSwitchingDistanceL23": "0",
+"DFIntCSGLevelOfDetailSwitchingDistanceL34": "0",
+
+"FFlagDebugAvatarChatVisualization": "True",
+"FFlagEnableInGameMenuChromeABTest2": "False",
+
+"DFIntTaskSchedulerTargetFps": "120",
+"FFlagLuaAppUseUIBloxColorPalettes1": "True",
+"FFlagUIBloxUseNewThemeColorPalettes": "True",
+"FFlagEnableInGameMenuChrome": "True",
+"FFlagEnableReportAbuseMenuRoactABTest2": "True",
+"FFlagChromeBetaFeature": "True",
+"FFlagEnableInGameMenuChromeABTest2": "True",
+
+"FFlagAdServiceEnabled": "False",
+"FFlagDebugDisableTelemetryEphemeralCounter": "True",
+"FFlagDebugDisableTelemetryEphemeralStat": "True",
+"FFlagDebugDisableTelemetryEventIngest": "True",
+"FFlagDebugDisableTelemetryPoint": "True",
+"FFlagDebugDisableTelemetryV2Counter": "True",
+"FFlagDebugDisableTelemetryV2Event": "True",
+"FFlagDebugDisableTelemetryV2Stat": "True",
+
+"DFFlagOrder66": "True",
+"FFlagDebugTextBoxServiceShowOverlay": "True",
+"FFlagHandleAltEnterFullscreenManually": "True"
+}

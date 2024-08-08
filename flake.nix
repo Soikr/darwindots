@@ -1,10 +1,8 @@
 {
-  description = "Awesome MacOS Nix flake";
+  description = "Personal MacOS dotfiles :D";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    nixd.url = "github:nix-community/nixd";
 
     darwin = {
       url = "github:LnL7/nix-darwin";
@@ -31,11 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     NeptuneFox = {
       url = "github:yiiyahui/Neptune-Firefox";
       flake = false;
@@ -52,8 +45,6 @@
     nixpkgs,
     darwin,
     home-manager,
-    nixd,
-    nixvim,
     arkenfox,
     nur,
     ...
@@ -63,8 +54,8 @@
       allowUnsupportedSystem = false;
     };
 
-    user = "aridflake";
-    hostname = "Arids-iMac";
+    user = "soikr";
+    hostname = "snowmalus";
     system = "x86_64-darwin";
   in {
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
