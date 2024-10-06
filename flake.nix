@@ -38,6 +38,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sbarlua = {
+      url = "github:FelixKratz/SbarLua";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -78,7 +83,7 @@
           inputs,
           ...
         }: {
-          nixpkgs.config = nixpkgsConfig;
+	  nixpkgs.config = nixpkgsConfig;
 
           system = {
             stateVersion = 4;

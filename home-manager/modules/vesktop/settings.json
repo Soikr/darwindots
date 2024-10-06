@@ -1,16 +1,14 @@
 {
     "autoUpdate": true,
     "autoUpdateNotification": true,
-    "useQuickCss": false,
+    "useQuickCss": true,
     "themeLinks": [
-        "https://raw.githubusercontent.com/KillYoy/DiscordNight/master/DiscordNight.theme.css"
     ],
     "enabledThemes": [
-        "Translucence.theme.css"
     ],
     "enableReactDevtools": false,
     "frameless": false,
-    "transparent": false,
+    "transparent": true,
     "winCtrlQ": false,
     "disableMinSize": true,
     "winNativeTitleBar": false,

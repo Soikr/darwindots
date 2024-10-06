@@ -4,6 +4,7 @@
   ...
 }: {
   home.file."Library/Application Support/Firefox/Profiles/Nixfox/chrome/Neptune".source = inputs.NeptuneFox;
+  home.sessionVariables.MOZ_LEGACY_PROFILES = 1;
 
   programs.firefox = {
     enable = true;
@@ -15,7 +16,6 @@
 
     profiles.Nixfox = {
       isDefault = true;
-      id = 0;
       name = "Nixfox";
 
       search = {
@@ -77,7 +77,10 @@
           };
         };
         "1600"."1602"."network.http.referer.XOriginTrimmingPolicy".enable = false;
-        "4500"."4504"."privacy.resistFingerprinting.letterboxing".enable = false;
+	"4500" = {
+	  "4504"."privacy.resistFingerprinting.letterboxing".enable = false;
+	  "4520"."webgl.disabled".enable = false;
+	};
         "5000" = {
           "5003"."signon.rememberSignons".enable = true;
           "5008"."browser.sessionstore.resume_from_crash".enable = true;

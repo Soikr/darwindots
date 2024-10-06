@@ -3,6 +3,10 @@
     enable = true;
     userName = "SoiKr";
     userEmail = "Soikr@proton.me";
+    signing = {
+      key = null;
+      signByDefault = true;
+    };
     aliases = {
       cm = "commit";
       co = "checkout";
@@ -30,10 +34,20 @@
       ".DS_Store" # Mac
     ];
     delta = {
-      enable = true;
+      enable = false;
       options = {
         features = "decorations";
       };
     };
+  };
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host github.com
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/github
+    '';
   };
 }

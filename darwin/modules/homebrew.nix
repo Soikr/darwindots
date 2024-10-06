@@ -13,9 +13,6 @@
       "homebrew/bundle"
       "homebrew/services"
 
-      # Sketchybar
-      "FelixKratz/formulae"
-
       # Aerosapce
       "nikitabobko/tap"
 
@@ -26,19 +23,14 @@
     casks = [
       # Primary
       "firefox"
+      "zen-browser" # Trying this out
       "vesktop"
       "obs"
 
       # Production
-      "blender"
-      "gimp"
-      "kitty"
-      "vscodium"
-      "kdenlive"
       "siyuan"
-      "wireshark"
+      "blender"
       "godot"
-      "jetbrains-toolbox"
 
       # Games
       "steam"
@@ -56,23 +48,12 @@
       "keepassxc"
       "vial"
 
-      # Fonts
-      "font-jetbrains-mono"
-
       # System Management
       "aerospace"
       "macfuse"
     ];
 
     brews = [
-      # System
-      "sketchybar"
-      "borders"
-      "syncthing"
-
-      # Utilities
-      "sniffnet"
-
       # Development
       "rojo"
 

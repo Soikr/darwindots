@@ -79,16 +79,12 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 2. Installing your preferred JetBrains IDEs through the toolbox.
 > [!NOTE]  
 > You may have to apply `-Dsun.java2d.metal=false` to the applications JVM options
-3. Sadly, firefox can be slightly buggy at first initialization and crash. This might fix it:
-    1. Remove the Profiles folder and profiles.ini file in `~/Library/Application\ Support/Firefox/`
-    2. Make a new Profiles folder, and an empty folder named "Nixfox"
-    3. Run firefox in profile manager mode (`firefox --ProfileManager`)
-    4. Create a new profile, use the existing folder Nixfox
-    5. Rebuild the nix system, if it complains about profiles.ini, let nix replace it, but backup the original profiles.ini. Then you can remove the nix-managed profiles.ini and replace it with the backup profiles.ini with hopefully no complains.
-    6. This is only a one time thing dont worry :)
+3. Sadly, firefox can be slightly buggy at first initialization and crash. Look at this:
+    1. https://github.com/nix-community/home-manager/issues/3323
 4. Run aerospace for the first time.
 5. Vesktop may crash. Ignore it and try again. Quit the initilization stuff vesktop does.
 6. Enable and configure firefox extensions (pre-installed).
+7. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
 
 ## Roadmap:
 - [ ] Writing a flake for a neovim configuration.

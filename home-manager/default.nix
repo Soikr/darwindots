@@ -11,7 +11,21 @@
 
   home = {
     packages = with pkgs; [
-      # Productioj
+      # Local Packages
+      (callPackage ./packages/sbarlua.nix {})
+
+      sketchybar
+      sketchybar-app-font
+      syncthing
+      gimp
+      kitty
+      vscodium
+      wireshark
+      jetbrains-mono
+      jankyborders
+
+
+      # Production
       neovim
       termshark
 
@@ -31,13 +45,12 @@
       luau
       lua-language-server
 
-      rustup
-
-      deno
       nodejs
       typescript
       nodePackages.npm
       nodePackages.yarn
+
+      rustup
 
       ktlint
       kotlin

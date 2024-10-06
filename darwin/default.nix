@@ -10,6 +10,15 @@
     };
   };
 
+  launchd.agents.FirefoxEnv = {
+    serviceConfig.ProgramArguments = [
+      "/bin/sh"
+      "-c"
+      "launchctl setenv MOZ_LEGACY_PROFILES 1; launchctl setenv MOZ_ALLOW_DOWNGRADE 1"
+    ];
+    serviceConfig.RunAtLoad = true;
+  };
+
   programs = {zsh.enable = true;};
 
   services = {nix-daemon.enable = true;};
@@ -22,6 +31,12 @@
         autohide = true;
         orientation = "bottom";
         show-recents = false;
+
+	expose-group-by-app = true;
+      };
+
+      spaces = {
+        spans-displays = true;
       };
 
       finder = {
