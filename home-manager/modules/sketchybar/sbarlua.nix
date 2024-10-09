@@ -3,9 +3,8 @@
   fetchFromGitHub,
   clang,
   gcc,
-  readline
+  readline,
 }:
-
 stdenv.mkDerivation {
   pname = "sketchybar-lua";
   version = "main";
@@ -17,8 +16,8 @@ stdenv.mkDerivation {
     sha256 = "sha256-F0UfNxHM389GhiPQ6/GFbeKQq5EvpiqQdvyf7ygzkPg=";
   };
 
-  nativeBuildInputs = [ clang gcc ];
-  buildInputs = [ readline ];
+  nativeBuildInputs = [clang gcc];
+  buildInputs = [readline];
 
   installPhase = ''
     runHook preInstall

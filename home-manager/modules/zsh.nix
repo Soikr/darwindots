@@ -1,8 +1,14 @@
 {pkgs, ...}: {
+  home.file.".hushlogin" = {
+    enable = true;
+    text = "";
+  };
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
-    enableCompletion = false;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
     autocd = true;
     dotDir = ".config/zsh";
 
@@ -10,40 +16,52 @@
       expireDuplicatesFirst = true;
       ignoreDups = true;
       share = true;
-      save = 1000;
-      size = 1000;
+      save = 2000;
+      size = 2000;
     };
 
-    shellAliases = {
-      ll = "ls -l";
-      la = "ls -a";
-      lla = "ls -al";
+    initExtra = ''
+             [ -f ~/.env/env.sh ] && source ~/.env/env.sh
 
-      # Nix
-      dr = "darwin-rebuild switch --flake ~/.nixconf";
-      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixconf";
-      nsh = "nix-shell";
-      ns = "nix search nixpkgs";
-      ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
+             export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
+
+             bindkey '^e' edit-command-line
+             bindkey '^f' fzf-file-widget
+
+             bindkey "\e[H" beginning-of-line
+             bindkey "\e[F" end-of-line
+
+             function cd() {
+               builtin cd $*
+               eza
+             }
+
+             function mkd() {
+               mkdir $1
+               builtin cd $1
+             }
+
+      function ls() {
+        eza $*
+      }
+
+             function clone() { git clone git@$1.git }
+             function gclone() { clone github.com:$1 }
+
+             source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
+             source "${pkgs.zsh-fzf-tab}/share/fzf-tab/lib/zsh-ls-colors/ls-colors.zsh"
+             source "${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh"
+             source "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh"
+    '';
+    prezto = {
+      enable = true;
+      caseSensitive = false;
+      utility.safeOps = true;
+      editor = {
+        dotExpansion = true;
+        keymap = "vi";
+      };
+      pmodules = ["autosuggestions" "directory" "editor" "git" "terminal"];
     };
-
-    plugins = [
-      {
-        name = "nix-zsh-shell";
-        src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
-      }
-      {
-        name = "nix-zsh-completions";
-        src = "${pkgs.nix-zsh-completions}/share/zsh/site-functions";
-      }
-      {
-        name = "zsh-fast-syntax-highlighting";
-        src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
-      }
-      {
-        name = "zsh-fzf-tab";
-        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
-      }
-    ];
   };
 }

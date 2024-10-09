@@ -31,6 +31,7 @@
       "siyuan"
       "blender"
       "godot"
+      "gimp"
 
       # Games
       "steam"

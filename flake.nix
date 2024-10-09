@@ -29,6 +29,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    meowvim.url = "github:Soikr/meowvim";
+
     NeptuneFox = {
       url = "github:yiiyahui/Neptune-Firefox";
       flake = false;
@@ -51,6 +58,7 @@
     darwin,
     home-manager,
     arkenfox,
+    nixcord,
     nur,
     ...
   } @ inputs: let
@@ -58,6 +66,8 @@
       allowUnfree = true;
       allowUnsupportedSystem = false;
     };
+
+    overlays = with inputs; [meowvim.overlay];
 
     user = "soikr";
     hostname = "snowmalus";
@@ -69,11 +79,6 @@
       inherit system;
       specialArgs = {inherit inputs;};
 
-      pkgs = import nixpkgs {
-        system = system;
-        config.allowUnfree = true;
-      };
-
       modules = [
         inputs.nix-index-database.darwinModules.nix-index
         ./darwin
@@ -83,7 +88,8 @@
           inputs,
           ...
         }: {
-	  nixpkgs.config = nixpkgsConfig;
+          nixpkgs.config = nixpkgsConfig;
+          nixpkgs.overlays = overlays;
 
           system = {
             stateVersion = 4;
@@ -129,8 +135,13 @@
                 imports = [
                   ./home-manager
                   arkenfox.hmModules.default
+                  nixcord.homeManagerModules.nixcord
+                  meowvim.meowvim
                 ];
                 home.stateVersion = "24.05";
+                meowvim = {
+                  ideavim.enable = true;
+                };
               };
           };
         }

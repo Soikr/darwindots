@@ -89,7 +89,6 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 ## Roadmap:
 - [ ] Writing a flake for a neovim configuration.
 - [ ] Migrate to flake-parts.
-- [ ] Extra testing and fixes in certain modules (ie. Roblox) and advance them by making proper homemanager flake modules.
 - [ ] Sketchybar configuration.
 - [ ] Add additional configuration steps (its not complete).
 

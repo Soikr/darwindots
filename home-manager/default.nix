@@ -1,50 +1,61 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./modules/zsh.nix
     ./modules/git.nix
+    ./modules/kitty.nix
     ./modules/aerospace
-    ./modules/jankyborders
-    ./modules/firefox
-    ./modules/vesktop
-    ./modules/roblox
+    ./modules/firefox.nix
+    ./modules/discord.nix
   ];
+
+  xdg.configFile = import modules/sketchybar config pkgs;
+
+  nixpkgs.overlays = [inputs.meowvim.overlay];
 
   home = {
     packages = with pkgs; [
-      # Local Packages
-      (callPackage ./packages/sbarlua.nix {})
-
       sketchybar
-      sketchybar-app-font
       syncthing
-      gimp
-      kitty
       vscodium
       wireshark
-      jetbrains-mono
-      jankyborders
-
 
       # Production
       neovim
+
+      # Net tools
+      bind
+      nmap
+      inetutils
       termshark
 
       # Utilities
+      bat
+      btop
       ripgrep
+      delta
       wget
       fd
       openssl
       ffmpeg
       nmap
       comma
+      eza
+      yt-dlp
 
       # Languages
       python3
+      poetry
 
       lua
       luau
       lua-language-server
 
+      # deno # doesnt work rn, a pr needs to be accepted
       nodejs
       typescript
       nodePackages.npm
@@ -69,14 +80,6 @@
       findutils
       gawk
     ];
-
-    sessionPath = ["$HOME/.local/go/bin" "$HOME/.local/bin" "$HOME/.cargo/bin"];
-
-    sessionVariables = {
-      NIXPKGS_ALLOW_UNFREE = "1";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
   };
 
   programs = {

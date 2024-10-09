@@ -1,0 +1,11 @@
+#!@lua@
+
+package.cpath = package.cpath .. ";@sketchybar_lua_so@/?.so"
+sbar = require("sketchybar")
+
+sbar.begin_config()
+require("init")
+sbar.hotload(true)
+sbar.end_config()
+
+sbar.event_loop()
