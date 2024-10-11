@@ -52,9 +52,6 @@
       # System Management
       "aerospace"
       "macfuse"
-
-      # Fonts
-      "sf-symbols"
     ];
 
     brews = [

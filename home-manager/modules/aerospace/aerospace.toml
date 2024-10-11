@@ -48,7 +48,7 @@ key-mapping.preset = 'qwerty'
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = [
-  'move-mouse window-lazy-center'#,
+  'move-mouse window-lazy-center',
   #'exec-and-forget sketchybar --trigger front_app_switched'
 ]
 
@@ -135,8 +135,8 @@ alt-shift-m = 'macos-native-fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-r = [
-  'mode resize'#,
-  #'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Resize Mode" HOLD="true"'
+  'mode resize',
+  # 'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Resize Mode" HOLD="true"'
 ]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
@@ -145,10 +145,10 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
-alt-1 = 'workspace 6'
-alt-2 = 'workspace 7'
-alt-3 = 'workspace 8'
-alt-4 = 'workspace 9'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
 alt-period  = 'workspace --wrap-around next'
 alt-comma = 'workspace --wrap-around prev'
 
@@ -168,7 +168,7 @@ cmd-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = [
-  'mode service'#,
+  'mode service',
   #'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Service Mode" HOLD="true"'
 ]
 
@@ -190,13 +190,13 @@ esc = 'mode main'
 esc = [
   'reload-config',
   'mode main',
-  #'exec-and-forget sketchybar --reload',
-  #'exec-and-forget sleep 0.5 && sketchybar --trigger send_message MESSAGE="Aerospace Reloaded"'
+  # 'exec-and-forget sketchybar --reload',
+  # 'exec-and-forget sleep 0.5 && sketchybar --trigger send_message MESSAGE="Aerospace Reloaded"'
 ]
 r = [
   'flatten-workspace-tree',
-  'mode main'#,
-  #'exec-and-forget sleep 0.5 && sketchybar --trigger hide_message'
+  'mode main',
+  # 'exec-and-forget sleep 0.5 && sketchybar --trigger hide_message'
 ]
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
