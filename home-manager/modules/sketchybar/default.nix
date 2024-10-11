@@ -3,9 +3,13 @@ config: pkgs: let
     src = ./sketchybar;
     files = [
       "sketchybarrc"
+      "items/apple.lua"
+      "items/menus.lua"
+      "items/widgets/wifi.lua"
     ];
     lua = "${pkgs.lua5_4}/bin/lua";
-    sketchybar_lua_so = pkgs.callPackage ./sbarlua.nix {};
+    sketchybar_lua_so = pkgs.callPackage ./packages/sbarlua.nix {};
+    bridges = pkgs.callPackage ./packages/bridge {};
   };
 
   sketchybar.rc = pkgs.runCommand "sketchybar-rc" {} ''

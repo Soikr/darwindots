@@ -13,7 +13,7 @@
       enableReactDevtools = true;
 
       plugins = {
-        accountPanelServiceIcon.enable = true; #accountPanelServerProfile
+        accountPanelServerProfile.enable = true;
         betterSessions.enable = true;
         betterSettings.enable = true;
         biggerStreamPreview.enable = true;

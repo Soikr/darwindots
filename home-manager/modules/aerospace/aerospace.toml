@@ -9,9 +9,13 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [
-	'exec-and-forget borders style=round width=10.0 hidpi=off active_color=0xffe2e2e3 inactive_color=0xff414550'
-]
+after-startup-command = []
+
+#exec-on-workspace-change = [
+#  '/bin/bash',
+#  '-c',
+#  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+#]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -43,7 +47,10 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+on-focus-changed = [
+  'move-mouse window-lazy-center'#,
+  #'exec-and-forget sketchybar --trigger front_app_switched'
+]
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -57,6 +64,7 @@ inner.horizontal = 15
 inner.vertical =   15
 outer.left =       15
 outer.bottom =     15
+# outer.top =        [{ monitor."built-in.*" = 15 }, 48] # Set if u have sketchybar configured.
 outer.top =        15
 outer.right =      15
 
@@ -123,8 +131,13 @@ cmd-shift-right = ['move right', 'focus right']
 alt-m = 'fullscreen'
 alt-shift-m = 'macos-native-fullscreen'
 
+#alt-z = 'exec-and-forget sketchybar --trigger aerospace_switch'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-r = 'mode resize'
+alt-r = [
+  'mode resize'#,
+  #'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Resize Mode" HOLD="true"'
+]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -132,6 +145,10 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
+alt-1 = 'workspace 6'
+alt-2 = 'workspace 7'
+alt-3 = 'workspace 8'
+alt-4 = 'workspace 9'
 alt-period  = 'workspace --wrap-around next'
 alt-comma = 'workspace --wrap-around prev'
 
@@ -150,7 +167,10 @@ alt-tab = 'workspace-back-and-forth'
 cmd-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-shift-semicolon = [
+  'mode service'#,
+  #'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Service Mode" HOLD="true"'
+]
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -167,10 +187,17 @@ esc = 'mode main'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
+esc = [
+  'reload-config',
+  'mode main',
+  #'exec-and-forget sketchybar --reload',
+  #'exec-and-forget sleep 0.5 && sketchybar --trigger send_message MESSAGE="Aerospace Reloaded"'
+]
+r = [
+  'flatten-workspace-tree',
+  'mode main'#,
+  #'exec-and-forget sleep 0.5 && sketchybar --trigger hide_message'
+]
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
@@ -182,4 +209,9 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
+if.window-title-regex-substring = 'picture-in-picture'
 run = ['layout floating']

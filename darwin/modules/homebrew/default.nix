@@ -34,7 +34,7 @@
       "gimp"
 
       # Games
-      "steam"
+      "steam" # Must be on case-insensitive system btw
 
       "roblox"
       "robloxstudio"
@@ -52,6 +52,9 @@
       # System Management
       "aerospace"
       "macfuse"
+
+      # Fonts
+      "sf-symbols"
     ];
 
     brews = [

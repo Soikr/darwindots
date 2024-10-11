@@ -1,5 +1,5 @@
 {
-  config,
+  #config,
   pkgs,
   inputs,
   ...
@@ -13,13 +13,13 @@
     ./modules/discord.nix
   ];
 
-  xdg.configFile = import modules/sketchybar config pkgs;
+  #xdg.configFile = import modules/sketchybar config pkgs;
 
   nixpkgs.overlays = [inputs.meowvim.overlay];
 
   home = {
     packages = with pkgs; [
-      sketchybar
+      #sketchybar
       syncthing
       vscodium
       wireshark
@@ -51,6 +51,7 @@
       python3
       poetry
 
+      # lua5_4 # 5_4 is required for sbarlua
       lua
       luau
       lua-language-server

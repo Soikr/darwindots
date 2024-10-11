@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/bcd84eb7-f270-4254-9917-f4e14e16b79d)
 # Installation
 
 ### 1. Installing nix and homebrew:
@@ -73,9 +74,7 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 
 ## Additional configuration steps: (Sadly not everything is reproducible easily).
 1. Enable Brew services: (Very much optional, jankyborders is the only one configured in this system).
-   - `brew services start borders`
    - `brew services start syncthing`
-   - `brew services start sketchybar`
 2. Installing your preferred JetBrains IDEs through the toolbox.
 > [!NOTE]  
 > You may have to apply `-Dsun.java2d.metal=false` to the applications JVM options
@@ -87,9 +86,8 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 7. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
 
 ## Roadmap:
-- [ ] Writing a flake for a neovim configuration.
-- [ ] Migrate to flake-parts.
-- [ ] Sketchybar configuration.
+- [ ] Fix sketchybar eventually
+- [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
 - [ ] Add additional configuration steps (its not complete).
 
 ##
@@ -97,3 +95,4 @@ Code formatted with [Alejandra](https://github.com/kamadorueda/alejandra)
   - You can do this with `nix fmt`
 
 Credits to [breuerfelix's dotfiles](https://github.com/breuerfelix/dotfiles) for providing a base to learn nix and nix-darwin.
+Credits to [bfpimentel's dotfiles](https://github.com/bfpimentel/nixos) for their sketchybar/aerospace integration setup. (Learn off of this guy not me)

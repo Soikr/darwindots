@@ -30,7 +30,7 @@
       dock = {
         autohide = true;
         expose-group-by-app = true; # For Aerospace
-        persistent-apps = [];
+        # persistent-apps = [];
         show-recents = false;
         wvous-tl-corner = 2;
         wvous-tr-corner = 11;
@@ -50,7 +50,7 @@
 
       menuExtraClock.Show24Hour = true;
 
-      spaces.spans-displays = true;
+      spaces.spans-displays = false;
     };
 
     startup.chime = false;

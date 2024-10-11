@@ -4,7 +4,12 @@
   ...
 }: {
   home.file."Library/Application Support/Firefox/Profiles/Nixfox/chrome/Neptune".source = inputs.NeptuneFox;
-  home.sessionVariables.MOZ_LEGACY_PROFILES = 1;
+
+  # IDK if these are required anymore https://github.com/nix-community/home-manager/pull/5723
+  #home.sessionVariables = {
+  #  MOZ_LEGACY_PROFILES = 1;
+  #  MOZ_ALLOW_DOWNGRADE = 1;
+  #};
 
   programs.firefox = {
     enable = true;
