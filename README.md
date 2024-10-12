@@ -1,4 +1,10 @@
-![image](https://github.com/user-attachments/assets/bcd84eb7-f270-4254-9917-f4e14e16b79d)
+<h1 align="center"> 
+Soikr's Darwindots!
+</h1>
+
+![image](https://github.com/user-attachments/assets/0d97ed13-da67-4078-8471-d07380fbeed9)
+<p align="center"> A usable and practical setup</p>
+
 # Installation
 
 ### 1. Installing nix and homebrew:
@@ -47,7 +53,7 @@ darwin-rebuild switch --flake .
 
 </details>
 
-# Applying changes from the config
+## Applying changes from the config
 ```shell
 darwin-rebuild switch --flake ~/.
 ```
@@ -57,7 +63,7 @@ Please reboot after this.
 > [!WARNING]  
 > I have set homebrew and its applications to not update and upgrade automatically through use of darwin-rebuild. Please use brew update and brew upgrade for this.
 
-### Updating
+## Updating
 ```shell
 nix flake update # All Inputs
 nix flake lock --update-input <input> # Single  Input
@@ -73,26 +79,26 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 ```
 
 ## Additional configuration steps: (Sadly not everything is reproducible easily).
-1. Enable Brew services: (Very much optional, jankyborders is the only one configured in this system).
-   - `brew services start syncthing`
-2. Installing your preferred JetBrains IDEs through the toolbox.
+1. Run aerospace for the first time.
+2. Enable and configure firefox extensions (pre-installed) or setup zen browser.
+3. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
+4. Installing your preferred JetBrains IDEs through the toolbox.
 > [!NOTE]  
 > You may have to apply `-Dsun.java2d.metal=false` to the applications JVM options
-3. Sadly, firefox can be slightly buggy at first initialization and crash. Look at this:
-    1. https://github.com/nix-community/home-manager/issues/3323
-4. Run aerospace for the first time.
-5. Vesktop may crash. Ignore it and try again. Quit the initilization stuff vesktop does.
-6. Enable and configure firefox extensions (pre-installed).
-7. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
+5. When running discord, do NOT add a helper. If you do, you can fix it by
+> [!CAUTION]
+> force removing the nix path that discord lays in with `rm -rf`
+> nix-store --verify --check-contents --repair
 
 ## Roadmap:
 - [ ] Fix sketchybar eventually
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
 - [ ] Add additional configuration steps (its not complete).
 
-##
+## Credits
 Code formatted with [Alejandra](https://github.com/kamadorueda/alejandra)
   - You can do this with `nix fmt`
 
-Credits to [breuerfelix's dotfiles](https://github.com/breuerfelix/dotfiles) for providing a base to learn nix and nix-darwin.
-Credits to [bfpimentel's dotfiles](https://github.com/bfpimentel/nixos) for their sketchybar/aerospace integration setup. (Learn off of this guy not me)
+[breuerfelix's dotfiles](https://github.com/breuerfelix/dotfiles) for providing a base to learn nix and nix-darwin.
+
+[bfpimentel's dotfiles](https://github.com/bfpimentel/nixos) for their sketchybar/aerospace integration setup. (Learn off of this guy not me)

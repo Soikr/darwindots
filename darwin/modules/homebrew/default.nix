@@ -24,7 +24,6 @@
       # Primary
       "firefox"
       "zen-browser" # Trying this out
-      "vesktop"
       "obs"
 
       # Production

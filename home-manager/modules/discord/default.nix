@@ -4,11 +4,6 @@
 
     config = {
       useQuickCss = true;
-      transparent = true;
-
-      themeLinks = [
-        "https://raw.githubusercontent.com/SlippingGittys-Discord-Themes/surCord/refs/heads/main/surCord.theme.css"
-      ];
 
       enableReactDevtools = true;
 
@@ -85,9 +80,7 @@
       };
     };
 
-    quickCss = ''
-      @import url('https://slippinggittys-discord-Themes.github.io/surCord/src/fixations/additions/translucency.css');
-    '';
+    quickCss = builtins.readFile ./quickCss.css;
 
     userPlugins = {
       betterActivities = "github:D3SOX/vc-betterActivities/b42afcd35d0ade108114b301859c7a077f45a8d5";

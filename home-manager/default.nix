@@ -10,7 +10,7 @@
     ./modules/kitty.nix
     ./modules/aerospace
     ./modules/firefox.nix
-    ./modules/discord.nix
+    ./modules/discord
   ];
 
   #xdg.configFile = import modules/sketchybar config pkgs;
