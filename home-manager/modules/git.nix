@@ -34,7 +34,7 @@
       ".DS_Store" # Mac
     ];
     delta = {
-      enable = false;
+      enable = true;
       options = {
         features = "decorations";
       };

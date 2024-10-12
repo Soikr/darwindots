@@ -5,7 +5,7 @@
     onActivation = {
       cleanup = "zap";
       autoUpdate = false;
-      upgrade = false;
+      upgrade = true;
     };
 
     taps = [
@@ -44,6 +44,10 @@
       "craftos-pc-accelerated"
 
       # Utilities
+      "keycastr"
+      "shottr"
+      "the-unarchiver"
+      "eul"
       "utm"
       "keepassxc"
       "vial"

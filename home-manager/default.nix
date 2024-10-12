@@ -11,6 +11,7 @@
     ./modules/aerospace
     ./modules/firefox.nix
     ./modules/discord
+    ./modules/roblox
   ];
 
   #xdg.configFile = import modules/sketchybar config pkgs;
@@ -30,7 +31,6 @@
       # Net tools
       bind
       nmap
-      inetutils
       termshark
 
       # Utilities
@@ -46,6 +46,7 @@
       comma
       eza
       yt-dlp
+      gh
 
       # Languages
       python3
