@@ -85,12 +85,15 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 4. Installing your preferred JetBrains IDEs through the toolbox.
 > [!NOTE]  
 > You may have to apply `-Dsun.java2d.metal=false` to the applications JVM options
-5. When running discord, do NOT add a helper. If you do, you can fix it by
+5. Run discord in the terminal first to patch its settings preventing the helper popup and auto updates.
+6. If discord does prompt you with the helper popup, ignore it. If you dont, you can fix discord by doing this: 
 > [!CAUTION]
 > force removing the nix path that discord lays in with `rm -rf`
+>
 > nix-store --verify --check-contents --repair
 
 ## Roadmap:
+- [ ] First initialization script to automate a few things.
 - [ ] Fix sketchybar eventually
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
 - [ ] Add additional configuration steps (its not complete).

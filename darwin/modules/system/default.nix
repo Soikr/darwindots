@@ -34,6 +34,7 @@
         show-recents = false;
         wvous-tl-corner = 2;
         wvous-tr-corner = 11;
+        wvous-br-corner = 1; # Disable Quick Note
       };
 
       finder = {
