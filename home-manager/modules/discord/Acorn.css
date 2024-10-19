@@ -43,4 +43,11 @@
 ----------Palettes 🎨---------
 > Rename "default.css" to "darker.css" for a darker theme
 */
+
+/* Dark Mode */
 @import url('https://raw.githubusercontent.com/SlippingGitty/Acorn/main/src/themes/default.css');
+(prefers-color-scheme: dark);
+
+/* Light Mode */
+@import url('https://raw.githubusercontent.com/SlippingGitty/Acorn/main/src/themes/light.css');
+(prefers-color-scheme: light);

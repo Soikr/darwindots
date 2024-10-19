@@ -31,6 +31,7 @@
       "blender"
       "godot"
       "gimp"
+      "android-studio"
 
       # Games
       "steam" # Must be on case-insensitive system btw
@@ -44,10 +45,9 @@
       "craftos-pc-accelerated"
 
       # Utilities
+      "raycast"
       "keycastr"
-      "shottr"
       "the-unarchiver"
-      "eul"
       "utm"
       "keepassxc"
       "vial"

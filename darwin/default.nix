@@ -5,8 +5,13 @@
     ./modules/jankyborders
   ];
 
-  services.nix-daemon.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
 
   launchd.agents = {
     FirefoxEnv = {
@@ -43,10 +48,10 @@
 
       # Nix
       dr = "darwin-rebuild switch --flake ~/.nixconf";
-      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixconf";
+      ne = "nvim ~/.nixconf";
       nsh = "nix-shell";
       ns = "nix search nixpkgs";
-      ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
+      ngc = "nix-collect-garbage --delete-older-than +2 && nix-store --verify && nix store optimise";
     };
 
     shells = [pkgs.zsh];

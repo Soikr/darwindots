@@ -2,8 +2,13 @@
   programs.nixcord = {
     enable = true;
 
+    vencordConfig = {
+      macosVibrancyStyle = "hud";
+    };
+
     config = {
       useQuickCss = true;
+      transparent = true;
 
       enableReactDevtools = true;
 
@@ -69,6 +74,7 @@
         shikiCodeblocks.enable = true;
         showHiddenChannels.enable = true;
         showHiddenThings.enable = true;
+        themeAttributes.enable = true;
         translate.enable = true;
         typingTweaks.enable = true;
         validReply.enable = true;
@@ -80,7 +86,7 @@
       };
     };
 
-    quickCss = builtins.readFile ./quickCss.css;
+    quickCss = builtins.readFile ./Acorn.css;
 
     userPlugins = {
       betterActivities = "github:D3SOX/vc-betterActivities/b42afcd35d0ade108114b301859c7a077f45a8d5";

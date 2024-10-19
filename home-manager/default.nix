@@ -12,6 +12,8 @@
     ./modules/firefox.nix
     ./modules/discord
     ./modules/roblox
+    ./modules/fzf.nix
+    ./modules/starship.nix
   ];
 
   #xdg.configFile = import modules/sketchybar config pkgs;
@@ -34,30 +36,28 @@
       termshark
 
       # Utilities
-      bat
-      btop
-      ripgrep
-      delta
       wget
-      fd
       openssl
       ffmpeg
       nmap
       comma
-      eza
-      yt-dlp
-      gh
+      fsrx
+      httpie
+      sshfs
+      rclone
+      silicon
+      duf
+      ugrep
 
       # Languages
       python3
-      poetry
 
       # lua5_4 # 5_4 is required for sbarlua
       lua
       luau
       lua-language-server
 
-      # deno # doesnt work rn, a pr needs to be accepted
+      # deno # Doesnt build, probably will soon tho
       nodejs
       typescript
       nodePackages.npm
@@ -67,18 +67,16 @@
 
       ktlint
       kotlin
-      gradle
 
       golangci-lint
 
       # GNU Binaries
       coreutils-full
-      gnupg
       gnutar
       gnused
-      gnugrep
       gnumake
       gzip
+      gnugrep
       findutils
       gawk
     ];
@@ -87,22 +85,31 @@
   programs = {
     home-manager.enable = true;
 
-    starship = {enable = true;};
+    starship = {
+      enable = true;
+      settings = {
+        "$schema" = "https://starship.rs/config-schema.json";
+        add_newline = false;
+      };
+    };
 
+    jq.enable = true;
+    bat.enable = true;
+    zoxide.enable = true;
+    eza.enable = true;
+    ripgrep.enable = true;
+    yt-dlp.enable = true;
+    fd.enable = true;
+    tealdeer.enable = true;
+
+    gpg.enable = true;
+
+    poetry.enable = true;
+    gradle.enable = true;
     go = {
       enable = true;
       goPath = "go";
       goBin = ".local/go/bin";
-    };
-
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
-      defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
-      defaultOptions = [
-        "--border sharp"
-        "--inline-info"
-      ];
     };
   };
 }

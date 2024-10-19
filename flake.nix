@@ -91,8 +91,10 @@
           nixpkgs.config = nixpkgsConfig;
           nixpkgs.overlays = overlays;
 
+          services.nix-daemon.enable = true;
+
           system = {
-            stateVersion = 4;
+            stateVersion = 5;
             configurationRevision = self.rev or self.dirtyRev or null;
           };
 
@@ -110,14 +112,15 @@
           nix = {
             package = pkgs.nixFlakes;
             gc = {
-              automatic = false;
+              automatic = true;
+              options = "--delete-older-than +2";
               user = user;
             };
             settings = {
               allowed-users = [user];
               experimental-features = ["nix-command" "flakes"];
               warn-dirty = false;
-              auto-optimise-store = false;
+              auto-optimise-store = true;
             };
           };
         })
