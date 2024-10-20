@@ -3,6 +3,7 @@
     ./modules/system
     ./modules/homebrew
     ./modules/jankyborders
+    ./modules/roblox
   ];
 
   programs = {
