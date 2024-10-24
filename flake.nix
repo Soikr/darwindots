@@ -30,7 +30,8 @@
     };
 
     nixcord = {
-      url = "github:kaylorben/nixcord";
+      #url = "github:kaylorben/nixcord";
+      url = "github:Soikr/nixcord/patch-1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -110,7 +111,7 @@
           };
 
           nix = {
-            package = pkgs.nixFlakes;
+            package = pkgs.nixVersions.git;
             gc = {
               automatic = true;
               options = "--delete-older-than +2";
