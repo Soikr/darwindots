@@ -9,8 +9,8 @@
     ./modules/git.nix
     ./modules/kitty.nix
     ./modules/aerospace
-    ./modules/firefox.nix
-    ./modules/discord
+    #./modules/firefox.nix
+    #./modules/discord
     ./modules/roblox
     ./modules/fzf.nix
     ./modules/starship.nix
@@ -24,8 +24,6 @@
     packages = with pkgs; [
       #sketchybar
       syncthing
-      vscodium
-      wireshark
 
       # Production
       neovim
@@ -48,6 +46,12 @@
       silicon
       duf
       ugrep
+      imhex
+
+      # CTF
+      hashcat
+      john
+      hashid
 
       # Languages
       python3

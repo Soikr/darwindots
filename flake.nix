@@ -29,11 +29,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcord = {
-      #url = "github:kaylorben/nixcord";
-      url = "github:Soikr/nixcord/patch-1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nixcord = {
+    #  url = "github:KaylorBen/nixcord";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     meowvim.url = "github:Soikr/meowvim";
 
@@ -59,7 +58,7 @@
     darwin,
     home-manager,
     arkenfox,
-    nixcord,
+    #nixcord,
     nur,
     ...
   } @ inputs: let

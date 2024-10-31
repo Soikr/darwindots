@@ -12,6 +12,7 @@
       enable = true;
       enableSSHSupport = true;
     };
+    nix-index-database.comma.enable = true;
   };
 
   launchd.agents = {

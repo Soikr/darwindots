@@ -42,4 +42,5 @@
 "FFlagDebugDisableTelemetryV2Event": "True",
 "FFlagDebugDisableTelemetryV2Stat": "True",
 "DFFlagOrder66": "True",
+"FFlagMovePrerender": "True",
 }

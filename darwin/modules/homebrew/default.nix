@@ -16,14 +16,21 @@
       # Aerosapce
       "nikitabobko/tap"
 
+      # Discord
+      "psharma04/dorion"
+
+      # Pkgx
+      "pkgxdev/made"
+
       # Personal
       "SoiKr/meowulae"
     ];
 
     casks = [
       # Primary
-      "firefox"
-      "zen-browser" # Trying this out
+      #  "firefox"
+      "zen-browser"
+      "dorion"
       "obs"
 
       # Production
@@ -31,26 +38,39 @@
       "blender"
       "godot"
       "gimp"
-      "android-studio"
+      "obs"
+
+      # Coding
+      "vscodium"
+      "rapidapi"
+
+      # Reverse Engineering
+      "ghidra"
 
       # Games
       "steam" # Must be on case-insensitive system btw
 
+      ## Roblox
       "roblox"
       "robloxstudio"
 
+      ## Minecraft
       "prismlauncher"
       "graalvm-jdk@21"
       "graalvm-jdk@17"
       "craftos-pc-accelerated"
 
+      # Virtualization
+      "utm"
+      "docker" # docker desktop
+
       # Utilities
       "raycast"
       "keycastr"
       "the-unarchiver"
-      "utm"
       "keepassxc"
       "vial"
+      "ti-connect-ce"
 
       # System Management
       "aerospace"
@@ -59,10 +79,21 @@
 
     brews = [
       # Development
+      "pkgxdev/made/pkgx"
+
       "rojo"
+
+      # CTF
+      "gdb"
+      "radare2"
+      "ophcrack"
 
       # Extra
       "openjdk@8"
+    ];
+
+    whalebrews = [
+      "whalebrew/whalesay"
     ];
 
     caskArgs = {
