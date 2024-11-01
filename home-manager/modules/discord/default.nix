@@ -2,10 +2,14 @@
   programs.nixcord = {
     enable = true;
 
+    discord = {
+      openASAR.enable = false;
+    };
+
     config = {
       useQuickCss = true;
 
-      enableReactDevtools = true;
+      enableReactDevtools = false;
 
       plugins = {
         accountPanelServerProfile.enable = true;
@@ -69,7 +73,6 @@
         shikiCodeblocks.enable = true;
         showHiddenChannels.enable = true;
         showHiddenThings.enable = true;
-        themeAttributes.enable = true;
         translate.enable = true;
         typingTweaks.enable = true;
         validReply.enable = true;

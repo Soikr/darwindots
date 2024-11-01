@@ -10,7 +10,7 @@
     ./modules/kitty.nix
     ./modules/aerospace
     #./modules/firefox.nix
-    #./modules/discord
+    ./modules/discord
     ./modules/roblox
     ./modules/fzf.nix
     ./modules/starship.nix

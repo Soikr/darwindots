@@ -8,6 +8,10 @@
       upgrade = true;
     };
 
+    masApps = {
+      Xcode = 497799835;
+    };
+
     taps = [
       # Default
       "homebrew/bundle"
@@ -15,9 +19,6 @@
 
       # Aerosapce
       "nikitabobko/tap"
-
-      # Discord
-      "psharma04/dorion"
 
       # Pkgx
       "pkgxdev/made"
@@ -28,9 +29,7 @@
 
     casks = [
       # Primary
-      #  "firefox"
       "zen-browser"
-      "dorion"
       "obs"
 
       # Production
@@ -60,9 +59,10 @@
       "graalvm-jdk@17"
       "craftos-pc-accelerated"
 
-      # Virtualization
+      # Virtualization/Not Emulation
       "utm"
       "docker" # docker desktop
+      "wine@staging"
 
       # Utilities
       "raycast"
@@ -75,6 +75,9 @@
       # System Management
       "aerospace"
       "macfuse"
+
+      # Stored
+      # "firefox"
     ];
 
     brews = [
@@ -90,6 +93,9 @@
 
       # Extra
       "openjdk@8"
+      "winetricks"
+      "llvm"
+      "mas"
     ];
 
     whalebrews = [

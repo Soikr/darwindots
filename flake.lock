@@ -112,11 +112,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1730347395,
-        "narHash": "sha256-2i5/K7Vx8mN7o64ovH63EazDK5Puz7P8/rNQUjXYJ7A=",
+        "lastModified": 1730433902,
+        "narHash": "sha256-zrvCvt1mrcpeFCBBaXl1CcK98eyRBNnKVr605LyU7FQ=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "5827bca9e6dc0dffad05ada5a82514186eb0ccd4",
+        "rev": "081666813ad6d3c4e83ce317beb4c894174d3372",
         "type": "gitlab"
       },
       "original": {
@@ -156,6 +156,20 @@
         "owner": "edolstra",
         "repo": "flake-compat",
         "type": "github"
+      }
+    },
+    "flake-compat_3": {
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "revCount": 57,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
       }
     },
     "flake-utils": {
@@ -308,6 +322,27 @@
         "type": "github"
       }
     },
+    "nixcord": {
+      "inputs": {
+        "flake-compat": "flake-compat_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1730107956,
+        "narHash": "sha256-Ohwk5/RGhGjDXaD4v0Yc40J/79gHRcD92mKWY+6qHJU=",
+        "owner": "KaylorBen",
+        "repo": "nixcord",
+        "rev": "5dcb476b924ad08ffd8521cca812052605cb5974",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KaylorBen",
+        "repo": "nixcord",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1719082008,
@@ -389,11 +424,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1730411166,
-        "narHash": "sha256-o1JcjEnWhnxkkKXYN1gQeO53RUsQExFsgMOJ/FzuFX0=",
+        "lastModified": 1730434297,
+        "narHash": "sha256-7wEy/XwjqAdzsIZJ2AFJaVeshX6yT9vhRsFjvQe0U1E=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "761c6a7d6859126681d206126ba26ec58306d068",
+        "rev": "5ef5f243936bc6387b55fc8cb08c88e7cf68092a",
         "type": "github"
       },
       "original": {
@@ -432,6 +467,7 @@
         "home-manager": "home-manager",
         "meowvim": "meowvim",
         "nix-index-database": "nix-index-database",
+        "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "sbarlua": "sbarlua"

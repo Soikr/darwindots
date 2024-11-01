@@ -29,10 +29,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #nixcord = {
-    #  url = "github:KaylorBen/nixcord";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nixcord = {
+      url = "github:KaylorBen/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     meowvim.url = "github:Soikr/meowvim";
 
@@ -58,7 +58,7 @@
     darwin,
     home-manager,
     arkenfox,
-    #nixcord,
+    nixcord,
     nur,
     ...
   } @ inputs: let
@@ -138,7 +138,7 @@
                 imports = [
                   ./home-manager
                   arkenfox.hmModules.default
-                  #nixcord.homeManagerModules.nixcord
+                  nixcord.homeManagerModules.nixcord
                   meowvim.meowvim
                 ];
                 home.stateVersion = "24.05";
