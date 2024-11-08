@@ -41,11 +41,14 @@
       options = "--delete-older-than 12d";
       user = user;
     };
+    optimise = {
+      automatic = true;
+      user = user;
+    };
     settings = {
       allowed-users = [user];
       experimental-features = ["nix-command" "flakes"];
       warn-dirty = false;
-      auto-optimise-store = true;
     };
   };
 }
