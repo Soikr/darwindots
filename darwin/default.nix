@@ -1,78 +1,51 @@
-{pkgs, ...}: {
-  imports = [
-    ./modules/system
-    ./modules/homebrew
-    ./modules/jankyborders
-    ./modules/roblox
-  ];
+{
+  pkgs,
+  self,
+  overlays,
+  user,
+  hostname,
+  ...
+}: {
+  imports = [./modules];
 
-  programs = {
-    zsh.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnsupportedSystem = false;
     };
-    nix-index-database.comma.enable = true;
+    overlays = overlays;
   };
 
-  launchd.agents = {
-    FirefoxEnv = {
-      serviceConfig.ProgramArguments = [
-        "/bin/sh"
-        "-c"
-        "launchctl setenv MOZ_LEGACY_PROFILES 1; launchctl setenv MOZ_ALLOW_DOWNGRADE 1"
-      ];
-      serviceConfig.RunAtLoad = true;
-    };
+  services.nix-daemon.enable = true;
+
+  system = {
+    stateVersion = 5;
+    configurationRevision = self.rev or self.dirtyRev or null;
   };
 
-  environment = {
-    shellAliases = {
-      ll = "eza -l";
-      la = "eza -a";
-      lla = "eza -al";
-
-      mkdir = "mkdir -p";
-      del = "rm -rf";
-
-      # Overrides
-      cat = "bat";
-      top = "btop";
-      htop = "btop";
-      pip = "python3 -m pip";
-      venv = "python3 -m venv";
-
-      # Programs
-      g = "git";
-      poe = "poetry";
-      nr = "npm run";
-      py = "python";
-
-      # Nix
-      dr = "darwin-rebuild switch --flake ~/.nixconf";
-      ne = "nvim ~/.nixconf";
-      nsh = "nix-shell";
-      ns = "nix search nixpkgs";
-      ngc = "nix-collect-garbage --delete-older-than +2 && nix-store --verify && nix store optimise";
-    };
-
-    shells = [pkgs.zsh];
-
-    systemPath = [
-      "$HOME/.local/go/bin"
-      "$HOME/.local/bin"
-      "$HOME/.cargo/bin"
-    ];
-
-    variables = {
-      NIXPKGS_ALLOW_UNFREE = "1";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
+  users.users.${user} = {
+    home = "/Users/${user}";
+    shell = pkgs.zsh;
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
-    # pkgs.sketchybar-app-font
-  ];
+  networking = {
+    computerName = hostname;
+    hostName = hostname;
+    localHostName = hostname;
+  };
+
+  nix = {
+    package = pkgs.nixVersions.git;
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 12d";
+      user = user;
+    };
+    settings = {
+      allowed-users = [user];
+      experimental-features = ["nix-command" "flakes"];
+      warn-dirty = false;
+      auto-optimise-store = true;
+    };
+  };
 }

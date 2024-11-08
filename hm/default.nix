@@ -1,28 +1,18 @@
 {
-  #config,
   pkgs,
   inputs,
   ...
 }: {
   imports = [
-    ./modules/zsh.nix
-    ./modules/git.nix
-    ./modules/kitty.nix
-    ./modules/aerospace
-    #./modules/firefox.nix
-    ./modules/discord
-    ./modules/roblox
-    ./modules/fzf.nix
-    ./modules/starship.nix
+    ./modules
   ];
-
-  #xdg.configFile = import modules/sketchybar config pkgs;
 
   nixpkgs.overlays = [inputs.meowvim.overlay];
 
   home = {
     packages = with pkgs; [
       #sketchybar
+      aerospace
       syncthing
 
       # Production
@@ -88,14 +78,6 @@
 
   programs = {
     home-manager.enable = true;
-
-    starship = {
-      enable = true;
-      settings = {
-        "$schema" = "https://starship.rs/config-schema.json";
-        add_newline = false;
-      };
-    };
 
     jq.enable = true;
     bat.enable = true;

@@ -21,9 +21,6 @@ git clone https://github.com/SoiKr/darwindots ~/.nixconf
 cd ~/.nixconf
 ```
 
-> [!NOTE]  
-> The zsh.nix file located in home-manager/modules/ calls for the folder ~/.nixconf for some nice basic aliases. Change this if you want.
-
 ### 3. Change the hostname and username in the `flake.nix`:
 
 ```nix
@@ -60,9 +57,6 @@ darwin-rebuild switch --flake ~/.
 
 Please reboot after this.
 
-> [!WARNING]  
-> I have set homebrew and its applications to not update and upgrade automatically through use of darwin-rebuild. Please use brew update and brew upgrade for this.
-
 ## Updating
 ```shell
 nix flake update # All Inputs
@@ -80,13 +74,9 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 
 ## Additional configuration steps: (Sadly not everything is reproducible easily).
 1. Run aerospace for the first time.
-2. Enable and configure firefox extensions (pre-installed) or setup zen browser.
-3. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
-4. Installing your preferred JetBrains IDEs through the toolbox.
-> [!NOTE]  
-> You may have to apply `-Dsun.java2d.metal=false` to the applications JVM options
-5. Run discord in the terminal first to patch its settings preventing the helper popup and auto updates.
-6. If discord does prompt you with the helper popup, ignore it. If you dont, you can fix discord by doing this: 
+2. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
+3. Run discord in the terminal first to patch its settings preventing the helper popup and auto updates.
+4. If discord does prompt you with the helper popup, ignore it. If you dont, you can fix discord by doing this: 
 > [!CAUTION]
 > force removing the nix path that discord lays in with `rm -rf`
 >
@@ -95,8 +85,13 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 ## Roadmap:
 - [ ] First initialization script to automate a few things.
 - [ ] Fix sketchybar eventually
+- [ ] Convert current aerospace implementation into the now-available nix-darwin aerospace module
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
-- [ ] Add additional configuration steps (its not complete).
+
+## Resources
+[nix-darwin](https://github.com/LnL7/nix-darwin/tree/master)
+[nix-darwin options](https://daiderd.com/nix-darwin/manual/index.html)
+[home-manager options](https://nix-community.github.io/home-manager/options.xhtml)
 
 ## Credits
 Code formatted with [Alejandra](https://github.com/kamadorueda/alejandra)
@@ -104,4 +99,4 @@ Code formatted with [Alejandra](https://github.com/kamadorueda/alejandra)
 
 [breuerfelix's dotfiles](https://github.com/breuerfelix/dotfiles) for providing a base to learn nix and nix-darwin.
 
-[bfpimentel's dotfiles](https://github.com/bfpimentel/nixos) for their sketchybar/aerospace integration setup. (Learn off of this guy not me)
+[bfpimentel's dotfiles](https://github.com/bfpimentel/nixos) for their sketchybar/aerospace integration setup.
