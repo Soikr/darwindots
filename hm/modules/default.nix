@@ -2,7 +2,6 @@
   imports = [
     ./aerospace
     ./discord
-    ./roblox
     ./btop.nix
     ./fzf.nix
     ./git.nix
