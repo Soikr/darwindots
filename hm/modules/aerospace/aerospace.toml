@@ -11,12 +11,6 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
-#exec-on-workspace-change = [
-#  '/bin/bash',
-#  '-c',
-#  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
-#]
-
 # Start AeroSpace at login
 start-at-login = true
 
@@ -49,7 +43,6 @@ key-mapping.preset = 'qwerty'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = [
   'move-mouse window-lazy-center',
-  #'exec-and-forget sketchybar --trigger front_app_switched'
 ]
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -64,7 +57,6 @@ inner.horizontal = 10
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     10
-# outer.top =        [{ monitor."built-in.*" = 10 }, 48] # Set if u have sketchybar configured.
 outer.top =        10
 outer.right =      10
 
@@ -131,12 +123,9 @@ cmd-shift-right = ['move right', 'focus right']
 alt-m = 'fullscreen'
 alt-shift-m = 'macos-native-fullscreen'
 
-#alt-z = 'exec-and-forget sketchybar --trigger aerospace_switch'
-
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-r = [
   'mode resize',
-  # 'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Resize Mode" HOLD="true"'
 ]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
@@ -149,6 +138,8 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-s = 'workspace S'
+alt-g = 'workspace G'
 alt-period  = 'workspace --wrap-around next'
 alt-comma = 'workspace --wrap-around prev'
 
@@ -169,8 +160,10 @@ cmd-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = [
   'mode service',
-  #'exec-and-forget sketchybar --trigger send_message MESSAGE="Aerospace in Service Mode" HOLD="true"'
 ]
+
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -190,13 +183,10 @@ esc = 'mode main'
 esc = [
   'reload-config',
   'mode main',
-  # 'exec-and-forget sketchybar --reload',
-  # 'exec-and-forget sleep 0.5 && sketchybar --trigger send_message MESSAGE="Aerospace Reloaded"'
 ]
 r = [
   'flatten-workspace-tree',
   'mode main',
-  # 'exec-and-forget sleep 0.5 && sketchybar --trigger hide_message'
 ]
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
@@ -215,3 +205,11 @@ run = ['layout floating']
 if.app-id = 'org.mozilla.com.zen.browser'
 if.window-title-regex-substring = 'picture-in-picture'
 run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id =  'com.roblox.RobloxPlayer'
+run = ['move-node-to-workspace G']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['move-node-to-workspace S']

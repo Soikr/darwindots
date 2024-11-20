@@ -84,7 +84,6 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 
 ## Roadmap:
 - [ ] First initialization script to automate a few things.
-- [ ] Fix sketchybar eventually
 - [ ] Convert current aerospace implementation into the now-available nix-darwin aerospace module
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
 

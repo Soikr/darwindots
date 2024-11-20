@@ -1,8 +1,4 @@
 {
-  #config,
-  #pkgs,
-  ...
-}: {
   imports = [
     ./aerospace
     ./discord
@@ -14,6 +10,4 @@
     ./starship.nix
     ./zsh.nix
   ];
-
-  #xdg.configFile = import modules/sketchybar config pkgs;
 }

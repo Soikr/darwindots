@@ -1,9 +1,15 @@
-{...}: {
+{...}: let
+  clientAppSettings = "~/Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json";
+  robloxPath = "/Applications/Roblox.app/Contents/MacOS/ClientSettings";
+in {
   launchd.user.agents.RobloxFFlags = {
     script = ''
-      mkdir -p /Applications/Roblox.app/Contents/MacOS/ClientSettings
-      cp ~/Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json /Applications/Roblox.app/Contents/MacOS/ClientSettings/ClientAppSettings.json
+      mkdir -p ${robloxPath}
+      cp ${clientAppSettings} ${robloxPath}/ClientAppSettings.json
     '';
-    serviceConfig.RunAtLoad = true;
+    serviceConfig.StartCalendarInterval = [
+      {Weekday = 3;}
+      {Weekday = 4;}
+    ];
   };
 }

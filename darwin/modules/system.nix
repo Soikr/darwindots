@@ -39,7 +39,6 @@
         autohide-time-modifier = 0.0;
         dashboard-in-overlay = true;
         expose-group-by-app = true; # For Aerospace
-        # persistent-apps = [];
         show-recents = false;
         magnification = true;
         launchanim = false;

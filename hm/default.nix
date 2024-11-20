@@ -28,7 +28,6 @@
       openssl
       ffmpeg
       nmap
-      comma
       fsrx
       httpie
       sshfs
@@ -36,33 +35,39 @@
       silicon
       duf
       ugrep
-      imhex
-
-      # CTF
-      hashcat
-      john
       hashid
 
+      ## Nix Tools
+      cachix
+      comma
+
+      # Reverse Engineering
+      imhex
+      radare2
+
       # Languages
+
+      ## Python
       python3
 
-      # lua5_4 # 5_4 is required for sbarlua
-      lua
-      luau
-      lua-language-server
+      ## Ruby
+      ruby
 
-      # deno # Doesnt build, probably will soon tho
+      ## Lua
+      lua5_4
+
+      ## JS
+      deno
       nodejs
       typescript
       nodePackages.npm
       nodePackages.yarn
 
+      ## Rust
       rustup
 
-      ktlint
+      ## Kotlin
       kotlin
-
-      golangci-lint
 
       # GNU Binaries
       coreutils-full

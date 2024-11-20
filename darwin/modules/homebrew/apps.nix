@@ -4,34 +4,24 @@
       Xcode = 497799835;
     };
 
-    taps = [
-      # Default
-      "homebrew/bundle"
-      "homebrew/services"
-
-      # Personal
-      "SoiKr/meowulae"
-    ];
-
     casks = [
       # Primary
       "zen-browser"
-      "obs"
-
-      # Production
       "siyuan"
+
+      ## Production
       "blender"
       "godot"
       "gimp"
       "obs"
 
-      # Coding
+      ## Coding
       "jetbrains-toolbox"
-      "android-studio"
       "vscodium"
+      "android-studio"
       "rapidapi"
 
-      # Reverse Engineering
+      ## Reverse Engineering
       "ghidra"
 
       # Games
@@ -47,40 +37,40 @@
       "graalvm-jdk@17"
       "craftos-pc-accelerated"
 
-      # Virtualization/Not Emulation
+      # Virtualization
       "utm"
-      "docker" # docker desktop
-      "wine@staging"
+      "docker"
 
       # Utilities
-      "raycast"
-      "keycastr"
-      "the-unarchiver"
       "keepassxc"
+      "keycastr"
       "vial"
+      "parsec"
       "ti-connect-ce"
 
-      # System Management
+      ## System
+      "raycast"
+      "the-unarchiver"
       "macfuse"
-
-      # Stored
-      # "firefox"
     ];
 
     brews = [
+      "mabel"
+
       # Development
+      "react-native-cli"
+      "watchman"
+      "cocoapods"
       "rojo"
 
-      # CTF
-      "gdb"
-      "radare2"
+      ## LSP/Linter
+      "swiftlint"
+
+      # System
+      "mas"
 
       # Extra
       "openjdk@8"
-      "winetricks"
-      "llvm"
-      "mas"
-      "swiftlint"
     ];
   };
 }

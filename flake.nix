@@ -29,12 +29,40 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    meowvim.url = "github:Soikr/meowvim";
+    meowvim = {
+      url = "github:Soikr/meowvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # sbarlua = {
-    #   url = "github:FelixKratz/SbarLua";
-    #   flake = false;
-    # };
+    homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+
+    homebrew-services = {
+      url = "github:homebrew/homebrew-services";
+      flake = false;
+    };
+
+    homebrew-meowulae = {
+      url = "github:soikr/homebrew-meowulae";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -42,6 +70,7 @@
     nixpkgs,
     darwin,
     home-manager,
+    homebrew,
     ...
   } @ inputs: let
     overlays = with inputs; [meowvim.overlay];
@@ -58,6 +87,7 @@
 
       modules = [
         inputs.nix-index-database.darwinModules.nix-index
+        homebrew.darwinModules.nix-homebrew
         ./darwin
         home-manager.darwinModule
         {
