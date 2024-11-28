@@ -15,7 +15,6 @@
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
       "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
       "homebrew/homebrew-services" = inputs.homebrew-services;
-      "soikr/homebrew-meowulae" = inputs.homebrew-meowulae;
     };
 
     mutableTaps = false;

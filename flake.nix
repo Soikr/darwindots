@@ -58,11 +58,6 @@
       url = "github:homebrew/homebrew-services";
       flake = false;
     };
-
-    homebrew-meowulae = {
-      url = "github:soikr/homebrew-meowulae";
-      flake = false;
-    };
   };
 
   outputs = {

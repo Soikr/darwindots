@@ -35,7 +35,6 @@
       "prismlauncher"
       "graalvm-jdk@21"
       "graalvm-jdk@17"
-      "craftos-pc-accelerated"
 
       # Virtualization
       "utm"
@@ -46,6 +45,7 @@
       "keycastr"
       "vial"
       "parsec"
+      "balenaetcher"
       "ti-connect-ce"
 
       ## System
