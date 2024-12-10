@@ -62,6 +62,7 @@
       "watchman"
       "cocoapods"
       "rojo"
+      "pinentry"
 
       ## LSP/Linter
       "swiftlint"

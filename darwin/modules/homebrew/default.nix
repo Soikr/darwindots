@@ -24,9 +24,11 @@
   homebrew = {
     enable = true;
 
+    global.autoUpdate = false;
+
     onActivation = {
       cleanup = "zap";
-      autoUpdate = true;
+      autoUpdate = false;
       upgrade = true;
     };
 

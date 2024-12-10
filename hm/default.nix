@@ -17,6 +17,7 @@
 
       # Production
       neovim
+      spacedrive
 
       # Net tools
       bind
