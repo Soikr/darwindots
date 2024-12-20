@@ -14,6 +14,7 @@
       "godot"
       "gimp"
       "obs"
+      "openboard"
 
       ## Coding
       "jetbrains-toolbox"
