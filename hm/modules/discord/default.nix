@@ -4,6 +4,7 @@
 
     discord = {
       openASAR.enable = false;
+      vencord.unstable = true;
     };
 
     config = {
@@ -71,7 +72,6 @@
         relationshipNotifier.enable = true;
         summaries.enable = true;
         shikiCodeblocks.enable = true;
-        showHiddenChannels.enable = true;
         showHiddenThings.enable = true;
         translate.enable = true;
         typingTweaks.enable = true;

@@ -37,6 +37,7 @@
       duf
       ugrep
       hashid
+      packwiz
 
       ## Nix Tools
       cachix
