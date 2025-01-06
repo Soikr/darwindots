@@ -77,7 +77,6 @@
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
 
-
     darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
       inherit system;
       specialArgs = {inherit inputs self overlays user hostname;};

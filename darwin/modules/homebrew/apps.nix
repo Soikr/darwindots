@@ -43,6 +43,7 @@
 
       # Utilities
       "keepassxc"
+      "syncthing" # Includes tray
       "keycastr"
       "vial"
       "parsec"

@@ -12,8 +12,6 @@
   home = {
     packages = with pkgs; [
       #sketchybar
-      aerospace
-      syncthing
 
       # Production
       neovim

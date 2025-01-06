@@ -1,6 +1,5 @@
 {
   imports = [
-    ./aerospace
     ./discord
     ./btop.nix
     ./fzf.nix
