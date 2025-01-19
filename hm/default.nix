@@ -5,17 +5,17 @@
 }: {
   imports = [
     ./modules
+    ./packages
   ];
 
   nixpkgs.overlays = [inputs.meowvim.overlay];
 
   home = {
     packages = with pkgs; [
-      #sketchybar
-
       # Production
       neovim
       spacedrive
+      anki-bin
 
       # Net tools
       bind
@@ -96,7 +96,6 @@
     gpg.enable = true;
 
     poetry.enable = true;
-    gradle.enable = true;
     go = {
       enable = true;
       goPath = "go";

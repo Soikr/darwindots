@@ -67,12 +67,12 @@
         alt-shift-3 = "move-node-to-workspace 3";
         alt-shift-4 = "move-node-to-workspace 4";
         alt-shift-5 = "move-node-to-workspace 5";
-        alt-shift-6 = "workspace 6";
-        alt-shift-7 = "workspace 7";
-        alt-shift-8 = "workspace 8";
-        alt-shift-9 = "workspace 9";
-        alt-shift-s = "workspace S";
-        alt-shift-g = "workspace G";
+        alt-shift-6 = "move-node-to-workspace 6";
+        alt-shift-7 = "move-node-to-workspace 7";
+        alt-shift-8 = "move-node-to-workspace 8";
+        alt-shift-9 = "move-node-to-workspace 9";
+        alt-shift-s = "move-node-to-workspace S";
+        alt-shift-g = "move-node-to-workspace G";
         alt-shift-period = ["move-node-to-workspace --wrap-around next" "workspace --wrap-around next"];
         alt-shift-comma = ["move-node-to-workspace --wrap-around prev" "workspace --wrap-around prev"];
 

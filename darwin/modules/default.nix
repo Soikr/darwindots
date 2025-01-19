@@ -4,7 +4,6 @@
     ./environment.nix
     ./fonts.nix
     ./homebrew
-    ./launchd
     ./programs
   ];
 }

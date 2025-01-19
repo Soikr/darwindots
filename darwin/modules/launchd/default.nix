@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./roblox
-    #./firefox.nix
-  ];
-}
