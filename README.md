@@ -2,7 +2,7 @@
 Soikr's Darwindots!
 </h1>
 
-![image](https://github.com/user-attachments/assets/0d97ed13-da67-4078-8471-d07380fbeed9)
+![Screenshot 2025-01-19 at 01 32 44](https://github.com/user-attachments/assets/eeebd424-5683-40b4-a58c-624cf11c8974)
 <p align="center"> A usable and practical setup</p>
 
 # Installation
@@ -73,18 +73,15 @@ ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-co
 ```
 
 ## Additional configuration steps: (Sadly not everything is reproducible easily).
-1. Run aerospace for the first time.
-2. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
-3. Run discord in the terminal first to patch its settings preventing the helper popup and auto updates.
-4. If discord does prompt you with the helper popup, ignore it. If you dont, you can fix discord by doing this: 
+1. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
+2. Run discord in the terminal first to patch its settings preventing the helper popup and auto updates.
+3. If discord does prompt you with the helper popup, ignore it. If you dont, you can fix discord by doing this: 
 > [!CAUTION]
 > force removing the nix path that discord lays in with `rm -rf`
 >
 > nix-store --verify --check-contents --repair
 
 ## Roadmap:
-- [ ] First initialization script to automate a few things.
-- [ ] Convert current aerospace implementation into the now-available nix-darwin aerospace module
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
 
 ## Resources
