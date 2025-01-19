@@ -8,6 +8,8 @@
       # Primary
       "zen-browser"
       "siyuan"
+      "signal"
+      "element"
 
       ## Production
       "blender"
