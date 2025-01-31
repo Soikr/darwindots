@@ -39,10 +39,24 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 12d";
+      interval = [
+        {
+          Hour = 9;
+          Minute = 30;
+          Weekday = 2;
+        }
+      ];
       user = user;
     };
     optimise = {
       automatic = true;
+      interval = [
+        {
+          Hour = 9;
+          Minute = 30;
+          Weekday = 3;
+        }
+      ];
       user = user;
     };
     settings = {

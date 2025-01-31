@@ -3,9 +3,12 @@
     enable = true;
 
     discord = {
+      enable = false;
       openASAR.enable = false;
       vencord.unstable = true;
     };
+
+    vesktop.enable = true;
 
     config = {
       useQuickCss = true;

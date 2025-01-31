@@ -84,6 +84,12 @@
   programs = {
     home-manager.enable = true;
 
+    # User made
+    craftos = {
+      enable = true;
+      accelerated = true;
+    };
+
     jq.enable = true;
     bat.enable = true;
     zoxide.enable = true;
