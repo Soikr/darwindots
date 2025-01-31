@@ -49,7 +49,7 @@
       user = user;
     };
     optimise = {
-      automatic = true;
+      automatic = false;
       interval = [
         {
           Hour = 9;

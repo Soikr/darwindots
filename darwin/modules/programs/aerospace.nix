@@ -134,6 +134,10 @@
           "if".app-id = "com.hnc.Discord";
           run = ["move-node-to-workspace S"];
         }
+        {
+          "if".app-id = "dev.vencord.vesktop";
+          run = ["move-node-to-workspace S"];
+        }
       ];
     };
   };
