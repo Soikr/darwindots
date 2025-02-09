@@ -58,16 +58,6 @@ in {
             enabled = true;
           }
           {
-            flag = "FFlagGlobalWindActivated";
-            value = "False";
-            enabled = true;
-          }
-          {
-            flag = "FFlagGlobalWindRendering";
-            value = "False";
-            enabled = true;
-          }
-          {
             flag = "FIntRenderShadowIntensity";
             value = 0;
             enabled = true;

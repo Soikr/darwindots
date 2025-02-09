@@ -14,7 +14,7 @@
     packages = with pkgs; [
       # Production
       neovim
-      spacedrive
+      # spacedrive # check pull 373271
       anki-bin
 
       # Net tools
