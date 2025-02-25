@@ -21,7 +21,6 @@ in {
     };
     fflags = {
       enable = true;
-      lod = true;
       gameDistance = {
         enable = true;
         games = [
@@ -53,11 +52,6 @@ in {
             enabled = true;
           }
           {
-            flag = "DFIntCanHideGuiGroupId";
-            value = "10685936";
-            enabled = true;
-          }
-          {
             flag = "FIntRenderShadowIntensity";
             value = 0;
             enabled = true;
@@ -70,6 +64,16 @@ in {
           {
             flag = "FIntDebugForceMSAASamples";
             value = 0;
+            enabled = true;
+          }
+          {
+            flag = "FFlagAdServiceEnabled";
+            value = false;
+            enabled = true;
+          }
+          {
+            flag = "DFFlagOrder66";
+            value = true;
             enabled = true;
           }
         ];

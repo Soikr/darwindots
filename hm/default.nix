@@ -1,14 +1,11 @@
 {
   pkgs,
-  inputs,
   ...
 }: {
   imports = [
     ./modules
     ./packages
   ];
-
-  nixpkgs.overlays = [inputs.meowvim.overlay];
 
   home = {
     packages = with pkgs; [

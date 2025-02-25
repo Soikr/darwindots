@@ -1,7 +1,7 @@
 {
   imports = [
     ./appleblox
-    ./discord
+    #./discord
     ./btop.nix
     ./fzf.nix
     ./git.nix

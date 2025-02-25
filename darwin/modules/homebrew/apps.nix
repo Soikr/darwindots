@@ -8,6 +8,7 @@
       # Primary
       "zen-browser"
       "siyuan"
+      "discord"
       "signal"
       "element"
 

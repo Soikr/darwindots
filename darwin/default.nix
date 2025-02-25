@@ -16,8 +16,6 @@
     overlays = overlays;
   };
 
-  services.nix-daemon.enable = true;
-
   system = {
     stateVersion = 5;
     configurationRevision = self.rev or self.dirtyRev or null;
@@ -46,7 +44,6 @@
           Weekday = 2;
         }
       ];
-      user = user;
     };
     optimise = {
       automatic = false;
@@ -57,7 +54,6 @@
           Weekday = 3;
         }
       ];
-      user = user;
     };
     settings = {
       allowed-users = [user];

@@ -3,17 +3,13 @@
     enable = true;
 
     discord = {
-      enable = false;
-      openASAR.enable = false;
+      enable = true;
+      openASAR.enable = true;
       vencord.unstable = true;
     };
 
-    vesktop.enable = true;
-
     config = {
-      useQuickCss = true;
-
-      enableReactDevtools = false;
+      useQuickCss = false;
 
       plugins = {
         accountPanelServerProfile.enable = true;
@@ -26,8 +22,6 @@
           format = "human";
         };
         clearURLs.enable = true;
-        consoleJanitor.enable = true;
-        dontRoundMyTimestamps.enable = true;
         fakeNitro.enable = true;
         fakeProfileThemes.enable = true;
         favoriteEmojiFirst.enable = true;
@@ -37,7 +31,6 @@
         fullSearchContext.enable = true;
         gifPaste.enable = true;
         hideAttachments.enable = true;
-        imageZoom.enable = true;
         implicitRelationships = {
           enable = true;
           sortByAffinity = true;
@@ -71,21 +64,17 @@
         noBlockedMessages.enable = true;
         noF1.enable = true;
         noUnblockToJump.enable = true;
-        reactErrorDecoder.enable = true;
         relationshipNotifier.enable = true;
         summaries.enable = true;
         shikiCodeblocks.enable = true;
         showHiddenThings.enable = true;
         translate.enable = true;
         typingTweaks.enable = true;
-        validReply.enable = true;
-        validUser.enable = true;
         voiceChatDoubleClick.enable = true;
         whoReacted.enable = true;
-        youtubeAdblock.enable = true;
       };
     };
 
-    quickCss = builtins.readFile ./Acorn.css;
+    #quickCss = builtins.readFile ./Acorn.css;
   };
 }

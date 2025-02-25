@@ -88,7 +88,7 @@ in {
         default = "default";
         description = "Lighting technologies";
       };
-      voxelShadows = mkEnableOption "Shadows when using Voxel";
+      disableVoxelShadows = mkEnableOption "Shadows when using Voxel";
       globalDistance = mkEnableOption "Split graphics from render distance";
       quality = mkOption {
         type = listOf int;
@@ -220,7 +220,7 @@ in {
                 label = labels.${cfg.fflags.lighting} or "Default";
                 value = cfg.fflags.lighting;
               };
-              disable_voxel_shadows = cfg.fflags.voxelShadows;
+              disable_voxel_shadows = cfg.fflags.disableVoxelShadows;
               quality_distance_toggle = cfg.fflags.globalDistance;
               quality_distance = cfg.fflags.quality;
               postfx = cfg.fflags.visuals;

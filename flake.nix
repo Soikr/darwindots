@@ -85,7 +85,7 @@
         inputs.nix-index-database.darwinModules.nix-index
         homebrew.darwinModules.nix-homebrew
         ./darwin
-        home-manager.darwinModule
+        home-manager.darwinModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
