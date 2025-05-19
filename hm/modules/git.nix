@@ -50,6 +50,7 @@
 
     ssh = {
       enable = true;
+
       addKeysToAgent = "confirm";
 
       matchBlocks = {

@@ -19,7 +19,7 @@
       size = 2000;
     };
 
-    initExtra = ''
+    initContent = ''
       [ -f ~/.env/env.sh ] && source ~/.env/env.sh
 
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share

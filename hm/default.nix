@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./modules
     ./packages
@@ -11,12 +8,14 @@
     packages = with pkgs; [
       # Production
       neovim
-      # spacedrive # check pull 373271
+      spacedrive
       anki-bin
 
       # Net tools
       bind
       nmap
+      netdiscover
+      wireshark
       termshark
 
       # Utilities
@@ -63,8 +62,9 @@
       ## Rust
       rustup
 
-      ## Kotlin
+      ## Android
       kotlin
+      gradle
 
       # GNU Binaries
       coreutils-full

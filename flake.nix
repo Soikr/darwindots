@@ -31,7 +31,7 @@
 
     meowvim = {
       url = "github:Soikr/meowvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     homebrew = {
@@ -97,7 +97,7 @@
               with inputs; {
                 imports = [
                   ./hm
-                  nixcord.homeManagerModules.nixcord
+                  nixcord.homeModules.nixcord
                   meowvim.meowvim
                 ];
                 home.stateVersion = "24.05";

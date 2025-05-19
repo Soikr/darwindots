@@ -4,7 +4,7 @@ in {
   programs.appleblox = {
     enable = true;
     integrations = {
-      enable = true;
+      enable = false;
       rpc = {
         enable = true;
         sdk = true;
@@ -21,13 +21,9 @@ in {
     };
     fflags = {
       enable = true;
-      gameDistance = {
-        enable = true;
-        games = [
-          "8735521924"
-          "2210085102"
-        ];
-      };
+      renderer = "vulkan";
+      unlockFPS = true;
+      disableVoxelShadows = true;
     };
     misc = {
       enable = true;
@@ -42,38 +38,18 @@ in {
         name = "Nix";
         flags = [
           {
+            flag = "FFlagUserHideCharacterParticlesInFirstPerson";
+            value = true;
+            enabled = true;
+          }
+          {
+            flag = "DFIntDefaultTimeoutTimeMs";
+            value = 5000;
+            enabled = true;
+          }
+          {
             flag = "FIntFullscreenTitleBarTriggerDelayMillis";
             value = 3600000;
-            enabled = true;
-          }
-          {
-            flag = "FFlagUserHideCharacterParticlesInFirstPerson";
-            value = "True";
-            enabled = true;
-          }
-          {
-            flag = "FIntRenderShadowIntensity";
-            value = 0;
-            enabled = true;
-          }
-          {
-            flag = "FIntTerrainArraySliceSize";
-            value = 8;
-            enabled = true;
-          }
-          {
-            flag = "FIntDebugForceMSAASamples";
-            value = 0;
-            enabled = true;
-          }
-          {
-            flag = "FFlagAdServiceEnabled";
-            value = false;
-            enabled = true;
-          }
-          {
-            flag = "DFFlagOrder66";
-            value = true;
             enabled = true;
           }
         ];

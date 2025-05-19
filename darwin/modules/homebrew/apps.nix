@@ -6,6 +6,7 @@
 
     casks = [
       # Primary
+      "zen"
       "zen-browser"
       "siyuan"
       "discord"
@@ -13,7 +14,7 @@
       "element"
 
       ## Production
-      "blender"
+      "kdenlive"
       "godot"
       "gimp"
       "obs"
@@ -23,13 +24,14 @@
       "jetbrains-toolbox"
       "vscodium"
       "android-studio"
+      "android-platform-tools"
       "rapidapi"
 
       ## Reverse Engineering
       "ghidra"
 
       # Games
-      "steam" # Must be on case-insensitive system btw
+      "steam" # Must be on case-insensitive system
 
       ## Roblox
       "roblox"
@@ -57,9 +59,11 @@
       "raycast"
       "the-unarchiver"
       "macfuse"
+      "xquartz"
     ];
 
     brews = [
+      # Primary
       "mabel"
 
       # Development
@@ -76,6 +80,7 @@
       "mas"
 
       # Extra
+      "molten-vk"
       "openjdk@8"
     ];
   };

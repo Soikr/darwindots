@@ -33,7 +33,7 @@
   };
 
   nix = {
-    package = pkgs.nixVersions.git;
+    package = pkgs.nixVersions.latest;
     gc = {
       automatic = true;
       options = "--delete-older-than 12d";
@@ -59,7 +59,7 @@
       allowed-users = [user];
       experimental-features = ["nix-command" "flakes"];
       warn-dirty = false;
-      download-buffer-size = 134217728;
+      download-buffer-size = 268435456;
     };
   };
 }

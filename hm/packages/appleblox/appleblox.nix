@@ -9,7 +9,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://github.com/AppleBlox/appleblox/releases/download/${finalAttrs.version}/AppleBlox-${finalAttrs.version}_x64.dmg";
-    hash = "sha256-zKL3Uhj+E83HSZmQizi8wLYUbOK0UleyuF1hvXUcEYE=";
+    hash = "sha256-MOWAnvZepYWqbnlLRB5zHDTi4hyl0cKVy/AuJvDpSzs=";
   };
 
   dontBuild = true;
