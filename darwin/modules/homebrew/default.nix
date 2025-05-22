@@ -15,6 +15,8 @@
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
       "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
       "homebrew/homebrew-services" = inputs.homebrew-services;
+
+      "th-ch/homebrew-youtube-music" = inputs.homebrew-ytm;
     };
 
     mutableTaps = false;

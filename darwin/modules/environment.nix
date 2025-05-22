@@ -22,11 +22,12 @@
       py = "python";
 
       # Nix
-      dr = "darwin-rebuild switch --flake ~/.nixconf";
-      ne = "nvim ~/.nixconf";
+      rebuild = "sudo darwin-rebuild switch --flake ~/.nixconf";
+      nedit = "nvim ~/.nixconf";
       nsh = "nix-shell";
-      ns = "nix search nixpkgs";
-      ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify && nix store optimise";
+      nsearch = "nix search nixpkgs";
+      ngc = "sudo nix-collect-garbage -d && nix store gc && nix store optimise";
+      verify = "nix store verify";
     };
 
     shells = [pkgs.zsh];

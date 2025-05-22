@@ -4,11 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,15 +19,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcord = {
-      url = "github:KaylorBen/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Programs
 
     meowvim = {
       url = "github:Soikr/meowvim";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixcord = {
+      url = "github:KaylorBen/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Darwin
+
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ## Homebrew 
 
     homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
@@ -56,6 +62,11 @@
 
     homebrew-services = {
       url = "github:homebrew/homebrew-services";
+      flake = false;
+    };
+
+    homebrew-ytm = {
+      url = "github:th-ch/homebrew-youtube-music";
       flake = false;
     };
   };

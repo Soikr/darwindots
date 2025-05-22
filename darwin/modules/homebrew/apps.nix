@@ -12,6 +12,7 @@
       "discord"
       "signal"
       "element"
+      "youtube-music"
 
       ## Production
       "kdenlive"
@@ -31,7 +32,7 @@
       "ghidra"
 
       # Games
-      "steam" # Must be on case-insensitive system
+      "steam" # Must be on case-insensitive fs 
 
       ## Roblox
       "roblox"
@@ -80,7 +81,6 @@
       "mas"
 
       # Extra
-      "molten-vk"
       "openjdk@8"
     ];
   };

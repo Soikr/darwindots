@@ -17,6 +17,8 @@
   };
 
   system = {
+    primaryUser = "${user}";
+
     stateVersion = 5;
     configurationRevision = self.rev or self.dirtyRev or null;
   };
@@ -33,7 +35,7 @@
   };
 
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = pkgs.nixVersions.git;
     gc = {
       automatic = true;
       options = "--delete-older-than 12d";
