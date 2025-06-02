@@ -66,20 +66,15 @@ nix flake lock --update-input <input> # Single  Input
 ### Preset ZSH Aliases for managing nix:
 ```
 dr = darwin-rebuild switch --flake ~/.nixconf
-ne = "nvim -c ':cd ~/.nixconf' ~/.nixconf";
-nsh = "nix-shell";
-ns = "nix search nixpkgs";
-ngc = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
+nedit = "nvim -c ':cd ~/.nixconf' ~/.nixconf"
+nsh = "nix-shell"
+nsearch = "nix search nixpkgs";
+ngc = "nix-collect-garbage -d && && nix store optimise"
+verify = "nix store verify"
 ```
 
 ## Additional configuration steps: (Sadly not everything is reproducible easily).
 1. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
-2. Run discord in the terminal first to patch its settings preventing the helper popup and auto updates.
-3. If discord does prompt you with the helper popup, ignore it. If you dont, you can fix discord by doing this: 
-> [!CAUTION]
-> force removing the nix path that discord lays in with `rm -rf`
->
-> nix-store --verify --check-contents --repair
 
 ## Roadmap:
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
