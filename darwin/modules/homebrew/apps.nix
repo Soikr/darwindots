@@ -7,7 +7,6 @@
     casks = [
       # Primary
       "zen"
-      "zen-browser"
       "siyuan"
       "discord"
       "signal"
@@ -32,7 +31,7 @@
       "ghidra"
 
       # Games
-      "steam" # Must be on case-insensitive fs 
+      "steam" # Must be on case-insensitive fs
 
       ## Roblox
       "roblox"
@@ -52,6 +51,7 @@
       "syncthing" # Includes tray
       "keycastr"
       "vial"
+      "protonvpn"
       "parsec"
       "balenaetcher"
       "ti-connect-ce"
@@ -71,8 +71,12 @@
       "react-native-cli"
       "watchman"
       "cocoapods"
-      "rojo"
       "pinentry"
+
+      # Roblox
+      "rojo"
+      "stylua"
+      "selene"
 
       ## LSP/Linter
       "swiftlint"

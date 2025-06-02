@@ -22,11 +22,11 @@
       py = "python";
 
       # Nix
-      rebuild = "sudo darwin-rebuild switch --flake ~/.nixconf";
+      dr = "sudo darwin-rebuild switch --flake ~/.nixconf";
       nedit = "nvim ~/.nixconf";
       nsh = "nix-shell";
       nsearch = "nix search nixpkgs";
-      ngc = "sudo nix-collect-garbage -d && nix store gc && nix store optimise";
+      ngc = "sudo nix-collect-garbage -d && nix store optimise";
       verify = "nix store verify";
     };
 

@@ -26,11 +26,6 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcord = {
-      url = "github:KaylorBen/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Darwin
 
     darwin = {
@@ -38,12 +33,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ## Homebrew 
+    ## Homebrew
 
-    homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -108,7 +100,6 @@
               with inputs; {
                 imports = [
                   ./hm
-                  nixcord.homeModules.nixcord
                   meowvim.meowvim
                 ];
                 home.stateVersion = "24.05";
