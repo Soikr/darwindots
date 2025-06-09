@@ -11,6 +11,7 @@
       aliases = {
         cm = "commit";
         co = "checkout";
+        si = "switch";
 
         di = "diff";
         dh = "diff HEAD";
@@ -19,6 +20,9 @@
         ps = "push";
 
         fe = "fetch";
+
+        ri = "rebase -i";
+        rc = "rebase --continue";
       };
       ignores = [
         # IDE
@@ -39,27 +43,6 @@
         enable = true;
         options = {
           features = "decorations";
-        };
-      };
-    };
-
-    gh = {
-      enable = true;
-      settings.git_protocol = "ssh";
-    };
-
-    ssh = {
-      enable = true;
-
-      addKeysToAgent = "confirm";
-
-      matchBlocks = {
-        "github.com" = {
-          identityFile = "~/.ssh/github";
-          extraOptions = {
-            AddKeysToAgent = "yes";
-            UseKeychain = "yes";
-          };
         };
       };
     };

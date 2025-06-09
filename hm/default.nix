@@ -8,7 +8,6 @@
     packages = with pkgs; [
       # Production
       neovim
-      spacedrive
       anki-bin
 
       # Net tools
@@ -86,6 +85,7 @@
       enable = true;
       accelerated = true;
     };
+    blender.enable = true;
 
     jq.enable = true;
     bat.enable = true;
@@ -95,8 +95,6 @@
     yt-dlp.enable = true;
     fd.enable = true;
     tealdeer.enable = true;
-
-    gpg.enable = true;
 
     poetry.enable = true;
     go = {

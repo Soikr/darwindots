@@ -8,6 +8,7 @@
       # Primary
       "zen"
       "siyuan"
+      "notion"
       "discord"
       "signal"
       "element"

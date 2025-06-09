@@ -1,6 +1,7 @@
 {
   imports = [
     ./appleblox
+    ./blender
     ./craftos
   ];
 }

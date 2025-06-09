@@ -23,11 +23,11 @@
 
       # Nix
       dr = "sudo darwin-rebuild switch --flake ~/.nixconf";
-      nedit = "nvim ~/.nixconf";
+      nim = "nvim ~/.nixconf";
       nsh = "nix-shell";
       nsearch = "nix search nixpkgs";
       ngc = "sudo nix-collect-garbage -d && nix store optimise";
-      verify = "nix store verify";
+      nv = "nix store verify";
     };
 
     shells = [pkgs.zsh];

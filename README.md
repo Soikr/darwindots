@@ -3,7 +3,7 @@ Soikr's Darwindots!
 </h1>
 
 ![Screenshot 2025-01-19 at 01 32 44](https://github.com/user-attachments/assets/eeebd424-5683-40b4-a58c-624cf11c8974)
-<p align="center"> A usable and practical setup</p>
+<p align="center"> A usable and practical setup (2013 iMac)</p>
 
 # Installation
 
@@ -66,11 +66,11 @@ nix flake lock --update-input <input> # Single  Input
 ### Preset ZSH Aliases for managing nix:
 ```
 dr = darwin-rebuild switch --flake ~/.nixconf
-nedit = "nvim -c ':cd ~/.nixconf' ~/.nixconf"
+nim = "nvim -c ':cd ~/.nixconf' ~/.nixconf"
 nsh = "nix-shell"
-nsearch = "nix search nixpkgs";
+nsearch = "nix search nixpkgs"
 ngc = "nix-collect-garbage -d && && nix store optimise"
-verify = "nix store verify"
+nv = "nix store verify"
 ```
 
 ## Additional configuration steps: (Sadly not everything is reproducible easily).

@@ -23,7 +23,7 @@
 
     meowvim = {
       url = "github:Soikr/meowvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Darwin

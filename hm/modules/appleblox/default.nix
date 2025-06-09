@@ -4,7 +4,7 @@ in {
   programs.appleblox = {
     enable = true;
     integrations = {
-      enable = false;
+      enable = true;
       rpc = {
         enable = true;
         sdk = true;
@@ -20,7 +20,7 @@ in {
       autoExit = true;
     };
     fflags = {
-      enable = true;
+      enable = false;
       renderer = "vulkan";
       unlockFPS = true;
       disableVoxelShadows = true;
