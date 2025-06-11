@@ -1,20 +1,28 @@
-{
+{ lib, pkgs, ... }: {
   services.aerospace = {
     enable = true;
     settings = {
+      exec-on-workspace-change = [
+        "/bin/bash"
+        "-c"
+        "${lib.getExe pkgs.sketchybar} --trigger delta-workspace" 
+        "focused=$AEROSPACE_FOCUSED_WORKSPACE"
+        "previous=$AEROSPACE_PREV_WORKSPACE"
+      ];
+
       on-focus-changed = ["move-mouse window-lazy-center"];
       gaps = {
         inner.horizontal = 10;
         inner.vertical = 10;
         outer.left = 10;
         outer.bottom = 10;
-        outer.top = 10;
+        outer.top = 38;
         outer.right = 10;
       };
       exec = {
         inherit-env-vars = true;
         env-vars = {
-          PATH = "/opt/homebrew/bin:/opt/homebrew/sbin:~/Applications/Home\ Manager\ Apps:\${PATH}";
+          PATH = "~/Applications:\${PATH}";
         };
       };
       mode.main.binding = {
@@ -25,19 +33,10 @@
         alt-slash = "layout tiles accordion";
         alt-shift-space = "layout floating tiling";
 
-        alt-h = "focus left";
-        alt-j = "focus down";
-        alt-k = "focus up";
-        alt-l = "focus right";
-        alt-shift-left = "focus left";
-        alt-shift-down = "focus down";
-        alt-shift-up = "focus up";
-        alt-shift-right = "focus right";
-
-        alt-shift-h = ["move left" "focus left"];
-        alt-shift-j = ["move down" "focus right"];
-        alt-shift-k = ["move up" "focus up"];
-        alt-shift-l = ["move right" "focus down"];
+        cmd-left = "focus left";
+        cmd-down = "focus down";
+        cmd-up = "focus up";
+        cmd-right = "focus right";
         cmd-shift-left = ["move left" "focus left"];
         cmd-shift-down = ["move down" "focus down"];
         cmd-shift-up = ["move up" "focus up"];
@@ -57,8 +56,8 @@
         alt-7 = "workspace 7";
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
-        alt-s = "workspace S";
-        alt-g = "workspace G";
+        alt-s = "workspace social";
+        alt-g = "workspace gaming";
         alt-period = "workspace --wrap-around next";
         alt-comma = "workspace --wrap-around prev";
 
@@ -71,17 +70,14 @@
         alt-shift-7 = "move-node-to-workspace 7";
         alt-shift-8 = "move-node-to-workspace 8";
         alt-shift-9 = "move-node-to-workspace 9";
-        alt-shift-s = "move-node-to-workspace S";
-        alt-shift-g = "move-node-to-workspace G";
-        alt-shift-period = ["move-node-to-workspace --wrap-around next" "workspace --wrap-around next"];
-        alt-shift-comma = ["move-node-to-workspace --wrap-around prev" "workspace --wrap-around prev"];
+        alt-shift-s = "move-node-to-workspace social";
+        alt-shift-g = "move-node-to-workspace gaming";
+        alt-shift-left = ["move-node-to-workspace --wrap-around next" "workspace --wrap-around next"];
+        alt-shift-right = ["move-node-to-workspace --wrap-around prev" "workspace --wrap-around prev"];
 
         alt-tab = "workspace-back-and-forth";
-        cmd-alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
-        alt-shift-semicolon = [
-          "mode service"
-        ];
+        alt-shift-semicolon = "mode service";
 
         cmd-h = [];
         cmd-alt-h = [];
@@ -121,22 +117,26 @@
         }
         {
           "if" = {
-            app-id = "org.mozilla.com.zen.browser";
+            app-id = "app.zen-browser.zen";
             window-title-regex-substring = "picture-in-picture";
           };
           run = ["layout floating"];
         }
         {
+          "if".app-id = "app.zen-browser.zen";
+          run = ["move-node-to-workspace 1"];
+        }
+        {
           "if".app-id = "com.roblox.RobloxPlayer";
-          run = ["move-node-to-workspace G"];
+          run = ["move-node-to-workspace gaming"];
         }
         {
           "if".app-id = "com.hnc.Discord";
-          run = ["move-node-to-workspace S"];
+          run = ["move-node-to-workspace social"];
         }
         {
-          "if".app-id = "dev.vencord.vesktop";
-          run = ["move-node-to-workspace S"];
+          "if".app-id = "com.github.th-ch.youtube-music";
+          run = ["move-node-to-workspace 9"];
         }
       ];
     };

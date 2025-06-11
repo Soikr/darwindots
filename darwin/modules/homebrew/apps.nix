@@ -1,7 +1,7 @@
 {...}: {
   homebrew = {
     masApps = {
-      Xcode = 497799835;
+      #Xcode = 497799835;
     };
 
     casks = [
@@ -62,6 +62,7 @@
       "the-unarchiver"
       "macfuse"
       "xquartz"
+      "sf-symbols"
     ];
 
     brews = [

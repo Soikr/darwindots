@@ -2,7 +2,10 @@
   system = {
     defaults = {
       ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
-      universalaccess.reduceMotion = true;
+      universalaccess = {
+        reduceMotion = true;
+        reduceTransparency = true;
+      };
       menuExtraClock.Show24Hour = true;
       spaces.spans-displays = false; # Set true if using sketchybar
 
@@ -117,9 +120,20 @@
           springboard-hide-duration = 0.0;
           springboard-page-duration = 0.0;
         };
+
+        "com.apple.symbolichotkeys" = {
+          AppleSymbolicHotKeys = {
+            "64".enabled = false;
+            "65".enabled = false;
+          };
+        };
       };
     };
-
     startup.chime = false;
+
+    activationScripts.postActivation.text = ''
+      mdutil -a -i off -d &> /dev/null
+      mdutil -a -E &> /dev/null
+    '';
   };
 }
