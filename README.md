@@ -2,16 +2,20 @@
 Soikr's Darwindots!
 </h1>
 
-![Screenshot 2025-01-19 at 01 32 44](https://github.com/user-attachments/assets/eeebd424-5683-40b4-a58c-624cf11c8974)
-<p align="center"> A usable and practical setup (2013 iMac)</p>
+![Preview](https://github.com/user-attachments/assets/9ab929b6-70dc-4f7c-878a-18ea2431c610)
+<p align="center"> A usable, performance oriented, and practical setup (2013 iMac)</p>
 
 # Installation
 
-### 1. Installing nix and homebrew:
+### 1. Installing nix:
 ```shell
-sh <(curl -L https://nixos.org/nix/install)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Select NO for determinate option
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
 ```
+> [!CAUTION]  
+> You MUST select NO when the determinate option shows up.
+> 
+> Otherwise uninstall.
 
 ### 2. Clone the repo into a designated spot in your home folder (ie. ~/.nixpgs):
 
@@ -29,33 +33,25 @@ cd ~/.nixconf
 38.      user = "soikr";
 39.      hostname = "snowmalus";
 ```
-> [!WARNING]  
-> Dont forget to set your system hostname and user to this and reboot.
+> [!IMPORTANT]  
+> Dont forget to set your system hostname and user to this.
 
 ### 4. Setting up nix-darwin and applying the config:
 
 ```shell
-nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.hostname_here.system"
-./result/sw/bin/darwin-rebuild switch --flake .
+sudo nix run nix-darwin/master#darwin-rebuild -- switch —flake .
 ```
+> [!NOTE]  
+> It may error due to missing XCode, you might have to install this.
+> 
+> Its too inconsistent to install through Nix.
 
-<details>
-<summary>If you already have the nix-darwin binary built:</summary>
-<p></p>
-
-```shell
-nix run --extra-experimental-features 'nix-command flakes' nix-darwin -- switch --flake ".#darwinConfigurations.hostname_here.system"
-darwin-rebuild switch --flake .
-```
-
-</details>
+Please reboot after this.
 
 ## Applying changes from the config
 ```shell
-darwin-rebuild switch --flake ~/.
+darwin-rebuild switch --flake ~/.nixconf
 ```
-
-Please reboot after this.
 
 ## Updating
 ```shell
@@ -73,21 +69,28 @@ ngc = "nix-collect-garbage -d && && nix store optimise"
 nv = "nix store verify"
 ```
 
-## Additional configuration steps: (Sadly not everything is reproducible easily).
+## Additional configuration steps:
 1. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
+2. Configure Zen Browser, Tailscale, Syncthing
+3. Launch Raycast, KeePassXC
+4. Set wallpaper
 
 ## Roadmap:
 - [ ] Further nixify the config (options, colors, templates, all the stuff i dont wanna set up)
 
 ## Resources
-[nix-darwin](https://github.com/LnL7/nix-darwin/tree/master)
-[nix-darwin options](https://daiderd.com/nix-darwin/manual/index.html)
-[home-manager options](https://nix-community.github.io/home-manager/options.xhtml)
+[nix-darwin Page](https://github.com/LnL7/nix-darwin/tree/master)
+
+[nix-darwin Options](https://daiderd.com/nix-darwin/manual/index.html)
+
+[home-manager Options](https://nix-community.github.io/home-manager/options.xhtml)
+
+[Aerospace Guide](https://nikitabobko.github.io/AeroSpace/guide)
+
+[Sketchybar Guide](https://felixkratz.github.io/SketchyBar)
 
 ## Credits
 Code formatted with [Alejandra](https://github.com/kamadorueda/alejandra)
   - You can do this with `nix fmt`
 
-[breuerfelix's dotfiles](https://github.com/breuerfelix/dotfiles) for providing a base to learn nix and nix-darwin.
-
-[bfpimentel's dotfiles](https://github.com/bfpimentel/nixos) for their sketchybar/aerospace integration setup.
+Thanks for all the public github repos and software (I couldn't list every resource here) <3

@@ -15,8 +15,8 @@
       strip_trailing_spaces = "smart";
       enable_audio_bell = "no";
       tab_bar_style = "powerline";
-      background_opacity = "0.8";
-      background_blur = 48;
+      #background_opacity = "0.8";
+      #background_blur = 48;
       update_check_interval = 0;
       macos_option_as_alt = "yes";
       macos_quit_when_last_window_closed = "yes";

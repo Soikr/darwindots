@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ## Homebrew
+    # Homebrew
 
     homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 

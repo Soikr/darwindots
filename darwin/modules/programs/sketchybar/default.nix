@@ -1,9 +1,6 @@
-{
-  pkgs,
-  ...
-}: let
-  sketchybarConfig = pkgs.callPackage ./config { };
-  sbar_menus = pkgs.callPackage ./pkgs/menus { };
+{pkgs, ...}: let
+  sketchybarConfig = pkgs.callPackage ./config {};
+  menus = pkgs.callPackage ./pkgs/menus {};
 
   lua = pkgs.lua54Packages.lua.withPackages (ps: [
     ps.lua
@@ -15,7 +12,7 @@ in {
     enable = true;
 
     extraPackages = [
-      sbar_menus
+      menus
     ];
 
     config = ''

@@ -1,13 +1,15 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   services.aerospace = {
     enable = true;
     settings = {
       exec-on-workspace-change = [
         "/bin/bash"
         "-c"
-        "${lib.getExe pkgs.sketchybar} --trigger delta-workspace" 
-        "focused=$AEROSPACE_FOCUSED_WORKSPACE"
-        "previous=$AEROSPACE_PREV_WORKSPACE"
+        "${lib.getExe pkgs.sketchybar} --trigger delta-workspace focused=$AEROSPACE_FOCUSED_WORKSPACE previous=$AEROSPACE_PREV_WORKSPACE"
       ];
 
       on-focus-changed = ["move-mouse window-lazy-center"];
@@ -16,7 +18,7 @@
         inner.vertical = 10;
         outer.left = 10;
         outer.bottom = 10;
-        outer.top = 38;
+        outer.top = 40;
         outer.right = 10;
       };
       exec = {
@@ -96,6 +98,7 @@
       };
       mode.service.binding = {
         esc = [
+          "exec-and-forget ${lib.getExe pkgs.sketchybar} --reload"
           "reload-config"
           "mode main"
         ];

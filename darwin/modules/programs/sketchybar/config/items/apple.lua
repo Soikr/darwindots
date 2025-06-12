@@ -18,7 +18,7 @@ local apple = sbar.add("item", {
   },
   padding_left = 1,
   padding_right = 1,
-  click_script = "sbar_menus -s 0"
+  click_script = "menus -s 0"
 })
 
 -- Double border for apple using a single item bracket

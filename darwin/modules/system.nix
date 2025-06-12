@@ -31,7 +31,7 @@
         NSAutomaticQuoteSubstitutionEnabled = false;
         NSAutomaticWindowAnimationsEnabled = false;
         NSWindowResizeTime = 0.001;
-        # _HIHideMenuBar = true; # Sketchybar
+        _HIHideMenuBar = true; # Sketchybar
         "com.apple.keyboard.fnState" = true;
         "com.apple.sound.beep.feedback" = 0;
         "com.apple.springing.delay" = 0.35;

@@ -1,17 +1,11 @@
 {...}: {
   homebrew = {
-    masApps = {
-      #Xcode = 497799835;
-    };
-
     casks = [
       # Primary
       "zen"
-      "siyuan"
       "notion"
       "discord"
       "signal"
-      "element"
       "youtube-music"
 
       ## Production
@@ -19,7 +13,6 @@
       "godot"
       "gimp"
       "obs"
-      "openboard"
 
       ## Coding
       "jetbrains-toolbox"
@@ -54,7 +47,7 @@
       "vial"
       "protonvpn"
       "parsec"
-      "balenaetcher"
+      "pearcleaner"
       "ti-connect-ce"
 
       ## System
@@ -71,8 +64,6 @@
 
       # Development
       "react-native-cli"
-      "watchman"
-      "cocoapods"
       "pinentry"
 
       # Roblox

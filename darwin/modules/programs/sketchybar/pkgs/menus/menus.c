@@ -17,6 +17,60 @@ void ax_init() {
   if (!trusted) exit(1);
 }
 
+// Helper function to get and print the title of a menu item
+void print_menu_item_title(AXUIElementRef element, int level) {
+    CFStringRef title = NULL;
+    AXError error = AXUIElementCopyAttributeValue(element, kAXTitleAttribute, (CFTypeRef *)&title);
+    if (error == kAXErrorSuccess && title) {
+        char buffer[256];
+        CFStringGetCString(title, buffer, sizeof(buffer), kCFStringEncodingUTF8);
+        for (int i = 0; i < level; i++) printf("  "); // Indentation
+        printf("%s\n", buffer);
+        CFRelease(title);
+    }
+}
+
+// Recursive function to traverse menu items
+void traverse_menu_tree(AXUIElementRef element, int level) {
+    print_menu_item_title(element, level);
+
+    CFArrayRef children = NULL;
+    AXError error = AXUIElementCopyAttributeValue(element, kAXChildrenAttribute, (CFTypeRef *)&children);
+    if (error == kAXErrorSuccess && children) {
+        CFIndex count = CFArrayGetCount(children);
+        for (CFIndex i = 0; i < count; i++) {
+            AXUIElementRef child = CFArrayGetValueAtIndex(children, i);
+            traverse_menu_tree(child, level + 1);
+        }
+        CFRelease(children);
+    }
+}
+
+// Function to start traversal from the menu bar
+void print_menu_bar_items() {
+    AXUIElementRef systemWide = AXUIElementCreateSystemWide();
+    AXUIElementRef menuBar = NULL;
+
+    // Get the menu bar
+    AXError error = AXUIElementCopyAttributeValue(systemWide, kAXMenuBarAttribute, (CFTypeRef *)&menuBar);
+    if (error == kAXErrorSuccess && menuBar) {
+        CFArrayRef menuBarItems = NULL;
+
+        // Get menu bar children
+        error = AXUIElementCopyAttributeValue(menuBar, kAXVisibleChildrenAttribute, (CFTypeRef *)&menuBarItems);
+        if (error == kAXErrorSuccess && menuBarItems) {
+            CFIndex count = CFArrayGetCount(menuBarItems);
+            for (CFIndex i = 0; i < count; i++) {
+                AXUIElementRef menuItem = CFArrayGetValueAtIndex(menuBarItems, i);
+                traverse_menu_tree(menuItem, 0); // Traverse each menu item
+            }
+            CFRelease(menuBarItems);
+        }
+        CFRelease(menuBar);
+    }
+    CFRelease(systemWide);
+}
+
 void ax_perform_click(AXUIElementRef element) {
   if (!element) return;
   AXUIElementPerformAction(element, kAXCancelAction);
@@ -139,6 +193,7 @@ AXUIElementRef ax_get_extra_menu_item(char* alias) {
                        sizeof(name_buffer),
                        kCFStringEncodingUTF8);
     snprintf(buffer, sizeof(buffer), "%s,%s", owner_buffer, name_buffer);
+    printf("Found alias: %s\n", buffer);
 
     if (strcmp(buffer, alias) == 0) {
       pid = owner_pid;
@@ -194,6 +249,48 @@ AXUIElementRef ax_get_extra_menu_item(char* alias) {
   return result;
 }
 
+void ax_print_extra_menu_options(char *alias) {
+  AXUIElementRef item = ax_get_extra_menu_item(alias);
+  if (!item) {
+    printf("Menu item not found for alias: %s\n", alias);
+    return;
+  }
+
+  // Perform click to open the dropdown
+  ax_perform_click(item);
+
+  // Wait for the menu to load
+  usleep(300000); // 300ms delay, adjust if necessary
+
+  // Fetch and print visible children of the opened dropdown
+  CFArrayRef children_ref = NULL;
+  AXError error = AXUIElementCopyAttributeValue(item, 
+                                                kAXVisibleChildrenAttribute, 
+                                                (CFTypeRef *)&children_ref);
+  if (error == kAXErrorSuccess && children_ref) {
+    uint32_t count = CFArrayGetCount(children_ref);
+
+    for (uint32_t i = 0; i < count; i++) {
+      AXUIElementRef child = CFArrayGetValueAtIndex(children_ref, i);
+      CFStringRef title = ax_get_title(child);
+
+      if (title) {
+        char buffer[256];
+        CFStringGetCString(title, buffer, sizeof(buffer), kCFStringEncodingUTF8);
+        printf("Dropdown Item %d: %s\n", i, buffer);
+        CFRelease(title);
+      }
+    }
+    CFRelease(children_ref);
+  } else {
+    printf("Failed to fetch dropdown items for alias: %s\n", alias);
+  }
+
+  // Close the dropdown by clicking it again
+  ax_perform_click(item);
+  CFRelease(item);
+}
+
 extern int SLSMainConnectionID();
 extern void SLSSetMenuBarVisibilityOverrideOnDisplay(int cid, int did, bool enabled);
 extern void SLSSetMenuBarVisibilityOverrideOnDisplay(int cid, int did, bool enabled);
@@ -243,6 +340,9 @@ int main (int argc, char **argv) {
       ax_select_menu_option(app, id);
       CFRelease(app);
     } else ax_select_menu_extra(argv[2]);
+  } else if (argc == 3 && strcmp(argv[1], "-p") == 0) {
+      ax_print_extra_menu_options(argv[2]);
   }
+  print_menu_bar_items();
   return 0;
 }

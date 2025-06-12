@@ -4,7 +4,6 @@
   darwin,
   ...
 }:
-
 stdenv.mkDerivation {
   name = "menus";
   src = lib.cleanSource ./.;
@@ -16,6 +15,6 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp bin/menus $out/bin/sbar_menus
+    cp bin/menus $out/bin/menus
   '';
 }

@@ -20,7 +20,6 @@
     };
 
     mutableTaps = false;
-    autoMigrate = true;
   };
 
   homebrew = {
@@ -34,10 +33,7 @@
       upgrade = true;
     };
 
-    caskArgs = {
-      appdir = "~/Applications";
-      no_quarantine = true;
-    };
+    caskArgs.no_quarantine = true;
 
     taps = builtins.attrNames config.nix-homebrew.taps;
   };

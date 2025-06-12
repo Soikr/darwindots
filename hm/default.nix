@@ -66,6 +66,7 @@
       gradle
 
       # GNU Binaries
+      gnupg
       coreutils-full
       gnutar
       gnused
