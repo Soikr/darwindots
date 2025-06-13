@@ -5,5 +5,6 @@
     ./fonts.nix
     ./homebrew
     ./programs
+    ./launchd
   ];
 }

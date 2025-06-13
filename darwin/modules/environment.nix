@@ -22,12 +22,21 @@
       py = "python";
 
       # Nix
-      dr = "sudo darwin-rebuild switch --flake ~/.nixconf";
+      dr = ''
+        sudo darwin-rebuild switch --flake ~/.nixconf &&
+        osascript -e 'display notification "Finished building!" with title "Nix Darwin Rebuilder"'
+      '';
       nim = "nvim ~/.nixconf";
       nsh = "nix-shell";
       nsearch = "nix search nixpkgs";
-      ngc = "sudo nix-collect-garbage -d && nix store optimise";
-      nv = "nix store verify";
+      ngc = ''
+        sudo nix-collect-garbage -d && nix store optimise &&
+        osascript -e 'display notification "Finished cleaning!" with title "Nix Garbage Collector"'
+      '';
+      nv = ''
+        nix store verify &&
+        osascript -e 'display notification "Verification done!" with title "Nix Store Verify"'
+      '';
     };
 
     shells = [pkgs.zsh];
