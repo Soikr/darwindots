@@ -1,6 +1,0 @@
-require("items.apple")
-require("items.spaces")
-require("items.focusedApp")
-require("items.calendar")
-require("items.keepassxc")
-require("items.menus")

@@ -1,107 +1,47 @@
-{pkgs, ...}: {
+{
   imports = [
-    ./modules
-    ./packages
+    ./kitty.nix
+    ./git.nix
+    ./fastfetch.nix
   ];
 
   home = {
-    packages = with pkgs; [
-      # Production
-      neovim
-      anki-bin
+    username = "soikr";
+    homeDirectory = "/Users/soikr";
 
-      # Net tools
-      bind
-      nmap
-      netdiscover
-      wireshark
-      termshark
+    stateVersion = "25.11";
 
-      # Utilities
-      wget
-      openssl
-      ffmpeg
-      nmap
-      fsrx
-      httpie
-      sshfs
-      rclone
-      silicon
-      duf
-      ugrep
-      hashid
-      packwiz
-
-      ## Nix Tools
-      cachix
-      comma
-
-      # Reverse Engineering
-      imhex
-      radare2
-
-      # Languages
-
-      ## Python
-      python3
-
-      ## Ruby
-      ruby
-
-      ## Lua
-      lua5_4
-
-      ## JS
-      deno
-      nodejs
-      typescript
-      nodePackages.npm
-      nodePackages.yarn
-
-      ## Rust
-      rustup
-
-      ## Android
-      kotlin
-      gradle
-
-      # GNU Binaries
-      gnupg
-      coreutils-full
-      gnutar
-      gnused
-      gnumake
-      gzip
-      gnugrep
-      findutils
-      gawk
-    ];
+    file.".hushlogin".text = "";
   };
 
   programs = {
-    home-manager.enable = true;
-
-    # User made
-    craftos = {
+    bat = {
       enable = true;
-      accelerated = true;
+      config = {
+        style = "plain";
+        theme = "zenburn";
+      };
     };
-    blender.enable = true;
-
-    jq.enable = true;
-    bat.enable = true;
     zoxide.enable = true;
-    eza.enable = true;
-    ripgrep.enable = true;
-    yt-dlp.enable = true;
-    fd.enable = true;
-    tealdeer.enable = true;
-
-    poetry.enable = true;
-    go = {
+    eza = {
       enable = true;
-      goPath = "go";
-      goBin = ".local/go/bin";
+      icons = "auto";
+      extraOptions = ["--group-directories-first"];
     };
+    tealdeer = {
+      enable = true;
+      enableAutoUpdates = true;
+    };
+    yt-dlp = {
+      enable = true;
+      extraConfig = "--quiet";
+      settings = {
+        embed-thumbnail = true;
+        output = "~/Movies/YouTube/%(title)s.%(ext)s";
+      };
+    };
+    fzf.enable = true;
   };
+
+  services.syncthing.enable = true;
 }

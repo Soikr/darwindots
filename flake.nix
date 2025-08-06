@@ -1,115 +1,100 @@
 {
-  description = "Personal MacOS dotfiles :D";
-
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    alejandra = {
-      url = "github:kamadorueda/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Programs
-
-    meowvim = {
-      url = "github:Soikr/meowvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Darwin
-
-    darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Homebrew
-
-    homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
-
-    homebrew-services = {
-      url = "github:homebrew/homebrew-services";
-      flake = false;
-    };
-
-    homebrew-ytm = {
-      url = "github:th-ch/homebrew-youtube-music";
-      flake = false;
-    };
-  };
+  description = "";
 
   outputs = {
     self,
-    nixpkgs,
+    pkgs,
     darwin,
-    home-manager,
-    homebrew,
+    hm,
+    brew,
     ...
   } @ inputs: let
-    overlays = with inputs; [meowvim.overlay];
+    systems = [
+      "x86_64-darwin"
+      "x86_64-linux"
+    ];
 
-    user = "soikr";
-    hostname = "snowmalus";
-    system = "x86_64-darwin";
+    forAllSystems = pkgs.lib.genAttrs systems;
   in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter = forAllSystems (system: pkgs.legacyPackages.${system}.alejandra);
 
-    darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
-      inherit system;
-      specialArgs = {inherit inputs self overlays user hostname;};
+    darwinConfigurations.snowmalus = darwin.lib.darwinSystem {
+      specialArgs = {inherit inputs self;};
 
       modules = [
-        inputs.nix-index-database.darwinModules.nix-index
-        homebrew.darwinModules.nix-homebrew
-        ./darwin
-        home-manager.darwinModules.home-manager
+        ./hosts/snowmalus
+        brew.darwinModules.nix-homebrew
+        hm.darwinModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-
-            extraSpecialArgs = {inherit inputs;};
-
-            users.${user} = {...}:
-              with inputs; {
-                imports = [
-                  ./hm
-                  meowvim.meowvim
-                ];
-                home.stateVersion = "24.05";
-                meowvim = {
-                  ideavim.enable = true;
-                };
-              };
+            users.soikr = import ./hm;
           };
         }
       ];
     };
+
+    nixosConfigurations = {
+      avalanche = pkgs.lib.nixosSystem {
+        modules = [];
+      };
+    };
+  };
+
+  inputs = {
+    pkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+
+    brew.url = "github:zhaofengli/nix-homebrew";
+
+    hm = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+
+    preservation.url = "github:nix-community/preservation";
+
+    sops = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+
+    crowdsec = {
+      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+
+    flakevim = {
+      url = "github:Soikr/flakevim";
+      inputs.nixpkgs.follows = "pkgs";
+    };
+  };
+
+  nixConfig = {
+    extra-experimental-features = ["nix-command" "flakes"];
+
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://microvm.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
+    ];
   };
 }

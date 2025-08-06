@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./appleblox
-    ./blender
-    ./craftos
-  ];
-}
