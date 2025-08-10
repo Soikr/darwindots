@@ -2,7 +2,7 @@
 Soikr's Darwindots!
 </h1>
 
-![Preview](./Assets/Screenshot.png)
+![Preview](./preview.png)
 <p align="center"> A usable, performance oriented, and practical setup (2013 iMac)</p>
 
 # Installation

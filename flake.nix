@@ -91,10 +91,12 @@
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://microvm.cachix.org"
+      "https://flakevim.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
+      "flakevim.cachix.org-1:sSi7NLjf7/jLkn5QXQZ337+YqCQ2E1oJE1/SeaFQV3U="
     ];
   };
 }
