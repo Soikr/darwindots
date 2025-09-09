@@ -7,6 +7,7 @@
 
       "steam"
       "obs"
+      "onlyoffice"
 
       "love" # noauto
       "godot" # noauto

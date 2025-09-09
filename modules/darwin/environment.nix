@@ -21,6 +21,7 @@
       jq
       ripgrep
       fd
+      poetry
 
       notion-app
       raycast
