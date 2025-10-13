@@ -8,6 +8,7 @@
       "steam"
       "obs"
       "onlyoffice"
+      "prismlauncher"
 
       "love" # noauto
       "godot" # noauto

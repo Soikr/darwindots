@@ -1,11 +1,11 @@
-{
+{pkgs, ...}: {
   imports = [
     ./services.nix
     ./environment.nix
   ];
 
   nix = {
-    channel.enable = false;
+    package = pkgs.lixPackageSets.stable.lix;
     settings.experimental-features = ["nix-command" "flakes"];
   };
 

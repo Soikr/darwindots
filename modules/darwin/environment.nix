@@ -28,7 +28,7 @@
       jetbrains-toolbox
       android-tools
       bruno
-      prismlauncher
+      # prismlauncher
       utm
       keepassxc
       keycastr

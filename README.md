@@ -1,5 +1,5 @@
 <h1 align="center"> 
-Soikr's Darwindots!
+Soikr's Darwindots (Soon Monorepo)!
 </h1>
 
 ![Preview](./preview.png)
@@ -7,15 +7,11 @@ Soikr's Darwindots!
 
 # Installation
 
-### 1. Installing nix:
+### 1. Installing nix (lix):
 ```shell
 # Select NO for determinate option
-curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+curl -sSf -L https://install.lix.systems/lix | sh -s -- install
 ```
-> [!CAUTION]  
-> You MUST select NO when the determinate option shows up.
-> 
-> Otherwise uninstall.
 
 ### 2. Clone the repo into a designated spot in your home folder (ie. ~/.nixpgs):
 
@@ -33,7 +29,7 @@ cd ~/.nixconf
 ### 4. Setting up nix-darwin and applying the config:
 
 ```shell
-sudo nix run nix-darwin/master#darwin-rebuild -- switch —flake .
+sudo nix run nix-darwin/master#darwin-rebuild -- switch .#
 ```
 > [!NOTE]  
 > It may error due to missing XCode, you might have to install this.

@@ -31,14 +31,10 @@
     settings = {
       allowed-users = ["soikr"];
       trusted-users = ["soikr"];
-      experimental-features = ["nix-command" "flakes"];
     };
   };
 
-  nixpkgs = {
-    hostPlatform = "x86_64-darwin";
-    config.allowUnfree = true;
-  };
+  nixpkgs.hostPlatform = "x86_64-darwin";
 
   system = {
     primaryUser = "soikr";
