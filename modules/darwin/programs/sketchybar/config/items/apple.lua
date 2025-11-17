@@ -82,7 +82,7 @@ divider_pad("apple.divider_padding_bottom_0")
 apple.prefs = popup_item("apple.prefs", icons.preferences, "Settings", "open -a 'System Preferences'; " .. popup_toggle)
 apple.activity =
     popup_item("apple.activity", icons.activity, "Activity", "open -a 'Activity Monitor'; " .. popup_toggle)
-apple.terminal = popup_item("apple.terminal", icons.term, "Terminal", "open -a 'kitty'; " .. popup_toggle)
+apple.terminal = popup_item("apple.terminal", icons.term, "Terminal", "open -a 'ghostty'; " .. popup_toggle)
 
 divider_pad("apple.divider_padding_top_1")
 divider("apple.divider_1")
