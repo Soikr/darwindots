@@ -5,6 +5,7 @@
       nmap
       netdiscover
       termshark
+      tshark
       ffmpeg
       httpie
       sshfs
@@ -23,17 +24,15 @@
       fd
       poetry
 
-      notion-app
       raycast
       jetbrains-toolbox
       android-tools
       bruno
-      # prismlauncher
       utm
       keepassxc
       keycastr
       macfuse-stubs
-      xquartz
+      # xquartz
       pinentry_mac
       rojo
       transmission_4

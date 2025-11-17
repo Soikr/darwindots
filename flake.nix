@@ -7,6 +7,7 @@
     darwin,
     hm,
     brew,
+    microvm,
     ...
   } @ inputs: let
     systems = [
@@ -36,8 +37,13 @@
     };
 
     nixosConfigurations = {
-      avalanche = pkgs.lib.nixosSystem {
-        modules = [];
+      halesia = pkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs self;};
+
+        modules = [
+          ./hosts/halesia
+          microvm.nixosModules.host
+        ];
       };
     };
   };
@@ -74,29 +80,9 @@
       inputs.nixpkgs.follows = "pkgs";
     };
 
-    crowdsec = {
-      url = "git+https://codeberg.org/kampka/nix-flake-crowdsec.git";
-      inputs.nixpkgs.follows = "pkgs";
-    };
-
     flakevim = {
       url = "github:Soikr/flakevim";
       inputs.nixpkgs.follows = "pkgs";
     };
-  };
-
-  nixConfig = {
-    extra-experimental-features = ["nix-command" "flakes"];
-
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://microvm.cachix.org"
-      "https://flakevim.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "microvm.cachix.org-1:oXnBc6hRE3eX5rSYdRyMYXnfzcCxC7yKPTbZXALsqys="
-      "flakevim.cachix.org-1:sSi7NLjf7/jLkn5QXQZ337+YqCQ2E1oJE1/SeaFQV3U="
-    ];
   };
 }

@@ -3,14 +3,14 @@
     casks = [
       "zen"
       "legcord" # noauto
-      "signal"
+      "notion"
 
       "steam"
       "obs"
       "onlyoffice"
       "prismlauncher"
+      "wireshark-app"
 
-      "love" # noauto
       "godot" # noauto
       "robloxstudio"
 

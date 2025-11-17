@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     ./sketchybar
     ./aerospace.nix
@@ -9,4 +9,6 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  services.tailscale.enable = true;
 }

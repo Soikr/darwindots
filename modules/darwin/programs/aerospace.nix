@@ -6,11 +6,15 @@
   services.aerospace = {
     enable = true;
     settings = {
-      exec-on-workspace-change = [
-        "/bin/bash"
-        "-c"
-        "${lib.getExe pkgs.sketchybar} --trigger delta-workspace focused=$AEROSPACE_FOCUSED_WORKSPACE previous=$AEROSPACE_PREV_WORKSPACE"
-      ];
+      exec-on-workspace-change = let
+        eowc = pkgs.writeShellScriptBin "eowc" ''
+          ${lib.getExe pkgs.aerospace} list-windows --all | \
+            awk '/Picture-in-Picture/ {print $1}' | \
+            xargs -I _ ${lib.getExe pkgs.aerospace} move-node-to-workspace --window-id _ $AEROSPACE_FOCUSED_WORKSPACE
+
+          ${lib.getExe pkgs.sketchybar} --trigger delta-workspace focused=$AEROSPACE_FOCUSED_WORKSPACE previous=$AEROSPACE_PREV_WORKSPACE
+        '';
+      in ["${eowc}/bin/eowc"];
 
       on-focus-changed = ["move-mouse window-lazy-center"];
       gaps = {
@@ -59,8 +63,8 @@
           alt-shift-4 = "move-node-to-workspace music";
           alt-shift-s = "move-node-to-workspace social";
           alt-shift-backtick = "move-node-to-workspace gaming";
-          alt-shift-left = ["move-node-to-workspace --wrap-around next" "workspace --wrap-around next"];
-          alt-shift-right = ["move-node-to-workspace --wrap-around prev" "workspace --wrap-around prev"];
+          alt-shift-left = ["move-node-to-workspace --wrap-around prev" "workspace --wrap-around prev"];
+          alt-shift-right = ["move-node-to-workspace --wrap-around next" "workspace --wrap-around next"];
 
           alt-tab = "workspace-back-and-forth";
 
@@ -116,6 +120,24 @@
         }
         {
           "if".app-id = "com.roblox.RobloxPlayer";
+          run = ["move-node-to-workspace gaming"];
+        }
+        {
+          "if".app-id = "org.Terraria";
+          run = [
+            "layout floating"
+            "move-node-to-workspace gaming"
+          ];
+        }
+        {
+          "if".app-id = "com.StefMorojna.SpaceflightSimulator";
+          run = ["move-node-to-workspace gaming"];
+        }
+        {
+          "if" = {
+            app-name-regex-substring = "java";
+            window-title-regex-substring = "Minecraft";
+          };
           run = ["move-node-to-workspace gaming"];
         }
         {
