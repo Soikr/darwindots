@@ -8,6 +8,7 @@
       android-tools
       keepassxc
       youtube-music
+      inkscape
       # prismlauncher
 
       imhex

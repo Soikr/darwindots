@@ -149,6 +149,10 @@
           run = ["move-node-to-workspace social"];
         }
         {
+          "if".app-id = "com.spikehd.dorion";
+          run = ["move-node-to-workspace social"];
+        }
+        {
           "if".app-id = "com.github.th-ch.youtube-music";
           run = ["move-node-to-workspace music"];
         }

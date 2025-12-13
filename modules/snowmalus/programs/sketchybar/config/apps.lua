@@ -5,10 +5,7 @@ end
 
 return setmetatable({
   ["Legcord"] = ":discord:",
-  ["Font Book"] = ":sioyek:",
-  ["LaunchControl"] = "󱓞",
-  ["Roblox"] = "􀛹",
-  ["RobloxPlayer"] = "􀛹",
+  ["Dorion"] = ":discord:",
 }, {
   __index = apps,
 })

@@ -1,8 +1,11 @@
 {
   homebrew = {
+    taps = [
+      "psharma04/dorion"
+    ];
     casks = [
       "zen"
-      "legcord" # noauto
+      "dorion"
       "notion"
 
       "steam"
@@ -10,6 +13,8 @@
       "onlyoffice"
       "prismlauncher"
 
+      "krita"
+      "gimp"
       "godot" # noauto
       "robloxstudio"
 

@@ -18,6 +18,10 @@
         ./hosts/snowmalus
       ];
     };
+    nixosConfigurations."winterberry" = pkgs.lib.nixosSystem {
+      modules = [
+      ];
+    };
   };
 
   inputs = {
