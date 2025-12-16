@@ -3,6 +3,7 @@
 
   outputs = {
     self,
+    pkgs-darwin,
     pkgs,
     darwin,
     brew,
@@ -20,14 +21,16 @@
     };
     nixosConfigurations."winterberry" = pkgs.lib.nixosSystem {
       modules = [
+        ./hosts/winterberry
       ];
     };
   };
 
   inputs = {
-    pkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    pkgs = "github:NixOS/nixpkgs/nixos-unstable";
+    pkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
 
-    darwin = {
+    nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "pkgs";
     };
@@ -36,7 +39,7 @@
 
     hm = {
       url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "pkgs";
+      inputs.nixpkgs.follows = "pkgs-darwin";
     };
   };
 }
