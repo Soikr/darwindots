@@ -57,7 +57,7 @@
           "local/root" = {
             type = "zfs_fs";
             mountpoint = "/";
-            options."com.sun:auto-snapshot" = "false";
+            options.mountpoint = "legacy";
             postCreateHook = "zfs snapshot zroot/local/root@blank";
           };
           "local/nix" = {

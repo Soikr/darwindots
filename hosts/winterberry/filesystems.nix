@@ -1,21 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-id/${config.diskID}-part1";
-    fsType = "vfat";
-    options = ["umask=0077"];
-  };
-
-  swapDevices = [
-    {
-      device = "/dev/disk/by-id/${config.diskID}-part2";
-      discardPolicy = "both";
-    }
-  ];
-
+{lib, ...}: {
   fileSystems."/" = lib.mkForce {
     device = "zroot/local/root";
     fsType = "zfs";
@@ -47,13 +30,13 @@
 
   fileSystems."/home" = {
     device = "zroot/local/home";
-    type = "zfs";
+    fsType = "zfs";
     neededForBoot = true;
   };
 
   fileSystems."/virt" = {
     device = "zroot/local/virt";
-    type = "zfs";
+    fsType = "zfs";
     neededForBoot = true;
   };
 }

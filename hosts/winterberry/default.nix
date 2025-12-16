@@ -11,7 +11,7 @@
     ./filesystems.nix
   ];
 
-  disko.devices.disk.main.device = "/dev/disk/by-id/${config.diskID}";
+  disko.devices.disk.main.device = "/dev/disk/by-id/${config.my.diskID}";
 
   boot = {
     loader = {
