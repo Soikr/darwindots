@@ -7,7 +7,7 @@
           type = "gpt";
           partitions = {
             ESP = {
-              size = "1G";
+              size = "4G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -88,11 +88,6 @@
             type = "zfs_fs";
             options.mountpoint = "legacy";
             mountpoint = "/etc/nixos";
-          };
-          "local/persist" = {
-            type = "zfs_fs";
-            options.mountpoint = "legacy";
-            mountpoint = "/persist";
           };
           "local/virt" = {
             type = "zfs_fs";

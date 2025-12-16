@@ -1,23 +1,48 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
   imports = [
-    ./disko.nix
     ./config.nix
-
-    ../../modules/winterberry
+    ./disko.nix
+    ./hardware-configuration.nix
+    ./filesystems.nix
   ];
 
-  disko.devices.disk.main.device = "/dev/disk/by-id/ata-WDC_WD10EZEX-75WN4A0_WD-WCC6Y7LYP330";
+  disko.devices.disk.main.device = "/dev/disk/by-id/${config.diskID}";
+
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.postDeviceCommands = lib.mkAfter ''
+      zfs rollback -r zroot/local/root@blank
+    '';
+  };
 
   users.users."${config.my.user}" = {
     isNormalUser = true;
     extraGroups = ["wheel"];
   };
 
-  networking.hostName = config.my.hostname;
+  environment.systemPackages = with pkgs; [
+    helix
+    git
+  ];
+
+  networking = {
+    hostName = config.my.hostname;
+    hostId = "cafebabe";
+    networkmanager.enable = true;
+  };
+
+  # services.openssh.enable
+  # programs.gnupg.agent
+
+  time.timeZone = "America/Los_Angeles";
 
   nix = {
     package = pkgs.lixPackageSets.stable.lix;
@@ -35,8 +60,6 @@
       experimental-features = "nix-command flakes";
     };
   };
-
-  nixpkgs.hostPlatform = "x86_64-linux";
 
   system.stateVersion = "25.11";
 }
