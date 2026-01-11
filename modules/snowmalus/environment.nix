@@ -9,6 +9,7 @@
       keepassxc
       youtube-music
       inkscape
+      vesktop
       # prismlauncher
 
       imhex
@@ -34,6 +35,7 @@
       rojo
 
       # xquartz
+      keka
       pinentry_mac
       macfuse-stubs
     ];

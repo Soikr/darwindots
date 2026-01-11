@@ -141,15 +141,7 @@
           run = ["move-node-to-workspace gaming"];
         }
         {
-          "if".app-id = "com.hnc.Discord";
-          run = ["move-node-to-workspace social"];
-        }
-        {
-          "if".app-id = "app.legcord.Legcord";
-          run = ["move-node-to-workspace social"];
-        }
-        {
-          "if".app-id = "com.spikehd.dorion";
+          "if".app-id = "dev.vencord.vesktop";
           run = ["move-node-to-workspace social"];
         }
         {

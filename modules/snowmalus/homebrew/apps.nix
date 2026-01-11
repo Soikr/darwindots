@@ -1,33 +1,41 @@
 {
+  # auto means the cask updates without brew.
+  # I look for `auto_updates: true` in cask code.
+  #
+  # noauto means the cask only updates through brew.
+  # I look for `auto_updates: false` in cask code.
+  #
+  # There is really no point in differentiating this.
+  # But you know what apps will update from `brew update`.
+
   homebrew = {
     taps = [
-      "psharma04/dorion"
+      "appleblox/homebrew-repo"
     ];
     casks = [
-      "zen"
-      "dorion"
-      "notion"
+      "zen" # auto
+      "notion" # auto
+      "appleblox@dev" # noauto
 
-      "steam"
-      "obs"
-      "onlyoffice"
-      "prismlauncher"
+      "steam" # auto
+      "obs" # auto
+      "onlyoffice" # auto
+      "prismlauncher" # auto
 
-      "krita"
-      "gimp"
+      "krita" # noauto
+      "gimp" # noauto
       "godot" # noauto
-      "robloxstudio"
+      "roblox" # auto
+      "robloxstudio" # auto
 
       "vial" # noauto
-      "opencore-patcher"
-      "macfuse"
-      "sf-symbols"
+      "opencore-patcher" # auto
+      "macfuse" # auto
+      "sf-symbols" # auto
       "font-sf-mono" # noauto
-      "pearcleaner"
-      "graalvm-jdk@21"
-    ];
-    brews = [
-      "tailscale"
+      "pearcleaner" # auto
+      "graalvm-jdk@21" # noauto
+      "notunes" # noauto
     ];
   };
 }

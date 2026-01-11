@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -8,13 +7,14 @@
     ./config.nix
     ./disko.nix
     ./hardware-configuration.nix
-    ./filesystems.nix
+
+    ../../modules/winterberry
   ];
 
   disko.devices.disk.main.device = "/dev/disk/by-id/${config.my.diskID}";
 
   boot = {
-    supportedFilesystems = [ "zfs" ];
+    supportedFilesystems = ["zfs"];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -22,12 +22,12 @@
     initrd.systemd = {
       enable = true;
       services.initrd-rollback-root = {
-        after = [ "zfs-import-zroot.service" ];
-        wantedBy = [ "initrd.target" ];
+        after = ["zfs-import-zroot.service"];
+        wantedBy = ["initrd.target"];
         before = [
           "sysroot.mount"
         ];
-        path = [ pkgs.zfs ];
+        path = [pkgs.zfs];
         description = "Rollback root fs";
         unitConfig.DefaultDependencies = "no";
         serviceConfig.Type = "oneshot";
@@ -41,11 +41,6 @@
     extraGroups = ["wheel"];
     initialPassword = "nixos";
   };
-
-  environment.systemPackages = with pkgs; [
-    helix
-    git
-  ];
 
   networking = {
     hostName = config.my.hostname;

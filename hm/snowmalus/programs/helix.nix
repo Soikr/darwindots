@@ -20,6 +20,9 @@
       # CSS
       vscode-css-languageserver
 
+      # Yaml
+      yaml-language-server
+
       # Markdown
       marksman
     ];
@@ -34,6 +37,7 @@
           clangd.fallbackFlags = ["-std=c++2b"];
         };
         vscode-css-language-server.command = "${pkgs.vscode-css-languageserver}/bin/vscode-css-language-server";
+        yaml-language-server.command = lib.getExe pkgs.yaml-language-server;
         marksman.command = lib.getExe pkgs.marksman;
       };
 

@@ -1,31 +1,35 @@
 {
   description = "Nix MacOS configurations";
 
-  outputs = {
+  outputs = inputs @ {
     self,
-    nixpkgs-darwin,
-    nixpkgs-nixos,
-    nix-darwin,
-    nix-homebrew,
-    home-manager,
+    nixpkgs,
+    darwinpkgs,
+    darwin,
+    brew,
+    hm,
     disko,
-    sops-nix,
+    sops,
+    ...
   }: {
-    darwinConfigurations."snowmalus" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."snowmalus" = darwin.lib.darwinSystem {
       specialArgs = {inherit self;};
 
       modules = [
-        nix-homebrew.darwinModules.nix-homebrew
-        home-manager.darwinModules.home-manager
+        brew.darwinModules.nix-homebrew
+        hm.darwinModules.home-manager
 
         ./hosts/snowmalus
       ];
     };
-    nixosConfigurations."winterberry" = nixpkgs-nixos.lib.nixosSystem {
+    nixosConfigurations."winterberry" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+
+      specialArgs = {inherit inputs;};
       modules = [
         disko.nixosModules.disko
-        sops-nix.nixosModules.sops
+        sops.nixosModules.sops
+        hm.nixosModules.home-manager
 
         ./hosts/winterberry
       ];
@@ -33,29 +37,34 @@
   };
 
   inputs = {
-    nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    darwinpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
 
-    nix-darwin = {
+    darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "darwinpkgs";
     };
 
-    home-manager = {
+    hm = {
       url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    brew.url = "github:zhaofengli/nix-homebrew";
 
     disko = {
       url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follows = "nixpkgs-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix = {
+    sops = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    secrets = {
+      url = "git+ssh://git@github.com/Soikr/nix-secrets.git?ref=main&shallow=1";
+      flake = false;
     };
   };
 }
