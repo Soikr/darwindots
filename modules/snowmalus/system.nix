@@ -1,4 +1,9 @@
 {
+  networking.applicationFirewall = {
+    enable = true;
+    blockAllIncoming = true;
+  };
+
   system = {
     defaults = {
       dock = {
@@ -90,7 +95,7 @@
       };
     };
     startup.chime = false;
-  
+
     activationScripts.postActivation.text = ''
       mdutil -a -i off -d &> /dev/null
       mdutil -a -E &> /dev/null
