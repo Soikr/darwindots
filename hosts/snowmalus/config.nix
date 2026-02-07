@@ -1,4 +1,5 @@
-{ lib, ... }: with lib; {
+{lib, ...}:
+with lib; {
   options.my = {
     user = mkOption {
       type = types.str;

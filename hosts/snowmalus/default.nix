@@ -1,4 +1,9 @@
-{ self, config, pkgs, ... }: {
+{
+  self,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./config.nix
 
@@ -11,8 +16,8 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { user = config.my.user; };
-    
+    extraSpecialArgs = {user = config.my.user;};
+
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${config.my.user} = import ../../hm/snowmalus;
@@ -22,16 +27,16 @@
     computerName = config.my.hostname;
     hostName = config.my.hostname;
   };
-  
+
   nix = {
     package = pkgs.lixPackageSets.stable.lix;
     channel.enable = false;
     settings = {
-      allowed-users = [ config.my.user ];
+      allowed-users = [config.my.user];
       experimental-features = "nix-command flakes";
     };
   };
-  
+
   nixpkgs = {
     config.allowUnfree = true;
     hostPlatform = "x86_64-darwin";

@@ -1,4 +1,4 @@
-{ user, ... }: {
+{user, ...}: {
   imports = [
     ./programs/fastfetch.nix
     ./programs/git.nix

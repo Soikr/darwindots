@@ -36,6 +36,7 @@
       "pearcleaner" # auto
       "graalvm-jdk@21" # noauto
       "notunes" # noauto
+      "apple-hewlett-packard-printer-drivers" # noauto
     ];
   };
 }

@@ -4,5 +4,6 @@
     ./system.nix
     ./programs
     ./homebrew
+    ./services
   ];
 }
