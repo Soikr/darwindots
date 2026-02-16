@@ -3,7 +3,7 @@
     git = {
       enable = true;
       signing = {
-        key = "${config.home.homeDirectory}/.ssh/git.pub";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOOpnM2LX8mRI11m1NIq6xLHPlj1MzhaUmD5sEb39nQb Soikr@proton.me";
         signByDefault = true;
       };
       ignores = [

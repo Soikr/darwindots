@@ -25,7 +25,7 @@ in
       owner = "lolamtisch";
       repo = "Discord-RPC-Extension";
       tag = finalAttrs.version;
-      hash = "sha256-vbBZ8AlmAqEBPOKI5afqo+LnzNvKViRG0PBgs/PzRIg=";
+      hash = "sha256-EDlp483I1c6BGFvrcXWG5n7GE+UNrDMjN3jSKtXRkjI=";
     };
     npmDepsHash = "sha256-4fwWd8tKE1aSMsEY+iU8rbngt4vavjH+85f2x1Hya7w=";
 
