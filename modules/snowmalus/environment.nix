@@ -7,10 +7,10 @@
       anki-bin
       android-tools
       keepassxc
-      youtube-music
       inkscape
-      vesktop
-      # prismlauncher
+      signal-desktop
+      halloy
+      prismlauncher
 
       imhex
       radare2
@@ -34,7 +34,7 @@
       poetry
       rojo
 
-      # xquartz
+      # xquartz # fixed, keep an eye out next release
       keka
       pinentry_mac
       macfuse-stubs

@@ -10,17 +10,18 @@
 
   homebrew = {
     taps = [
-      "appleblox/homebrew-repo"
+      "pear-devs/pear"
     ];
     casks = [
       "zen" # auto
       "notion" # auto
-      "appleblox@dev" # noauto
+      "monal" # noauto
+      "pear-desktop" # until pear-desktop on nix
 
       "steam" # auto
       "obs" # auto
       "onlyoffice" # auto
-      "prismlauncher" # auto
+      "supertuxkart" # noauto
 
       "krita" # noauto
       "gimp" # noauto
@@ -36,6 +37,7 @@
       "pearcleaner" # auto
       "graalvm-jdk@21" # noauto
       "notunes" # noauto
+      "xquartz" # auto, remove when nix fix
       "apple-hewlett-packard-printer-drivers" # noauto
     ];
   };

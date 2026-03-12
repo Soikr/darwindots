@@ -1,5 +1,6 @@
 {
   imports = [
-    ./rpc
+    ./browser-rpc
+    ./arrpc.nix
   ];
 }

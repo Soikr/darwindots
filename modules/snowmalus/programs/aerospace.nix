@@ -70,6 +70,8 @@
 
           alt-shift-semicolon = "mode service";
 
+          cmd-shift-s = "exec-and-forget screencapture -i -c";
+
           cmd-h = [];
           cmd-alt-h = [];
         };
@@ -123,6 +125,18 @@
           run = ["move-node-to-workspace gaming"];
         }
         {
+          "if".app-id = "com.Polytoria.Polytoria-Client";
+          run = ["move-node-to-workspace gaming"];
+        }
+        {
+          "if".app-id = "net.sourceforge.supertuxkart";
+          run = ["move-node-to-workspace gaming"];
+        }
+        {
+          "if".app-id = "com.valvesoftware.steam.helper";
+          run = ["move-node-to-workspace gaming"];
+        }
+        {
           "if".app-id = "org.Terraria";
           run = [
             "layout floating"
@@ -141,7 +155,15 @@
           run = ["move-node-to-workspace gaming"];
         }
         {
-          "if".app-id = "dev.vencord.vesktop";
+          "if".app-id = "org.whispersystems.signal-desktop";
+          run = ["move-node-to-workspace social"];
+        }
+        {
+          "if".app-id = "org.squidowl.halloy";
+          run = ["move-node-to-workspace social"];
+        }
+        {
+          "if".app-id = "org.monal-im.prod.catalyst.monal";
           run = ["move-node-to-workspace social"];
         }
         {
