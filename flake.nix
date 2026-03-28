@@ -9,6 +9,7 @@
     brew,
     hm,
     disko,
+    preservation,
     sops,
     ...
   }: {
@@ -22,17 +23,31 @@
         ./hosts/snowmalus
       ];
     };
-    nixosConfigurations."winterberry" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations = {
+      "shiverthorn" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
 
-      specialArgs = {inherit inputs;};
-      modules = [
-        disko.nixosModules.disko
-        sops.nixosModules.sops
-        hm.nixosModules.home-manager
+        specialArgs = {inherit inputs;};
+        modules = [
+          disko.nixosModules.disko
+          preservation.nixosModules.preservation
+          sops.nixosModules.sops
 
-        ./hosts/winterberry
-      ];
+          ./hosts/shiverthorn
+        ];
+      };
+      "winterberry" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = {inherit inputs;};
+        modules = [
+          disko.nixosModules.disko
+          sops.nixosModules.sops
+          hm.nixosModules.home-manager
+
+          ./hosts/winterberry
+        ];
+      };
     };
   };
 
@@ -56,6 +71,8 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    preservation.url = "github:nix-community/preservation";
 
     sops = {
       url = "github:Mic92/sops-nix";
