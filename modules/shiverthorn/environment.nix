@@ -41,8 +41,10 @@
       ripgrep
       fd
       poetry
+      uv
       rsync
     ];
+    localBinInPath = true;
   };
 
   programs = {

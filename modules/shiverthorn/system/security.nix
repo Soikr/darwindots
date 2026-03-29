@@ -1,9 +1,6 @@
-{pkgs, ...}: {
-  zramSwap = {
-    enable = true;
-    memoryPercent = 100;
-  };
-
+# https://wiki.nixos.org/wiki/NixOS_Hardening
+# https://xeiaso.net/blog/paranoid-nixos-2021-07-18
+{
   security = {
     sudo.execWheelOnly = true;
     apparmor = {
@@ -15,21 +12,32 @@
 
   boot = {
     kernelParams = [
+      # Enable page allocator randomization
       "page_alloc.shuffle=1"
+
+      # Disable debugfs
       "debugfs=off"
     ];
     kernel.sysctl = {
+      # Hide kptrs even for processes with CAP_SYSLOG
       "kernel.kptr_restrict" = "2";
 
+      # Disable ftrace debugging
       "kernel.ftrace_enabled" = false;
 
+      # Enable strict reverse path filtering (that is, do not attempt to route
+      # packets that "obviously" do not belong to the iface's network; dropped
+      # packets are logged as martians).
       "net.ipv4.conf.all.log_martians" = true;
       "net.ipv4.conf.all.rp_filter" = "1";
       "net.ipv4.conf.default.log_martians" = true;
       "net.ipv4.conf.default.rp_filter" = "1";
 
+      # Ignore broadcast ICMP (mitigate SMURF)
       "net.ipv4.icmp_echo_ignore_broadcasts" = true;
 
+      # Ignore incoming ICMP redirects (note: default is needed to ensure that the
+      # setting is applied to interfaces added after the sysctls are set)
       "net.ipv4.conf.all.accept_redirects" = false;
       "net.ipv4.conf.all.secure_redirects" = false;
       "net.ipv4.conf.default.accept_redirects" = false;
@@ -37,50 +45,9 @@
       "net.ipv6.conf.all.accept_redirects" = false;
       "net.ipv6.conf.default.accept_redirects" = false;
 
+      # Ignore outgoing ICMP redirects (this is ipv4 only)
       "net.ipv4.conf.all.send_redirects" = false;
       "net.ipv4.conf.default.send_redirects" = false;
-    };
-  };
-
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-    amdgpu = {
-      legacySupport.enable = true;
-      opencl.enable = true;
-    };
-  };
-
-  systemd.tmpfiles.rules = let
-    rocmEnv = pkgs.symlinkJoin {
-      name = "rocm-combined";
-      paths = with pkgs.rocmPackages; [
-        rocblas
-        hipblas
-        clr
-      ];
-    };
-  in [
-    "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
-  ];
-
-  services = {
-    power-profiles-daemon.enable = false;
-    thermald.enable = true;
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-      };
     };
   };
 }
