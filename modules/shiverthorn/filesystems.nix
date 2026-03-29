@@ -10,6 +10,8 @@
           inInitrd = true;
         }
         "/var/lib/flatpak"
+        "/var/lib/NetworkManager"
+        "/var/lib/bluetooth"
       ];
       files = [
         {
