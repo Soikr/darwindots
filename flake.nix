@@ -32,6 +32,7 @@
           disko.nixosModules.disko
           preservation.nixosModules.preservation
           sops.nixosModules.sops
+          hm.nixosModules.home-manager
 
           ./hosts/shiverthorn
         ];
@@ -82,6 +83,14 @@
     secrets = {
       url = "git+ssh://git@github.com/Soikr/nix-secrets.git?ref=main&shallow=1";
       flake = false;
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "hm";
+      };
     };
   };
 }

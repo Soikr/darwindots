@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -67,14 +68,18 @@
       hashedPasswordFile = config.sops.secrets."shiverthorn/admin_passwd".path;
       isNormalUser = true;
       extraGroups = ["wheel" "networkmanager"];
-
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2AlhQunhdQvL5/yA4aGMISqZq4WxD0HjdumyzcqASh soikr@snowmalus"
-      ];
     };
   };
 
-  services.openssh.enable = true;
+  home-manager = {
+    extraSpecialArgs = {user = config.my.user;};
+
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {inherit inputs;};
+    sharedModules = [inputs.zen-browser.homeModules.beta];
+    users.${config.my.user} = import ../../hm/shiverthorn;
+  };
 
   networking.hostName = config.my.hostname;
 
@@ -96,6 +101,7 @@
       experimental-features = "nix-command flakes";
     };
   };
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "25.11";
 }

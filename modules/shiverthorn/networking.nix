@@ -7,6 +7,10 @@
         backend = "iwd";
       };
     };
-    wireless.iwd.settings.General.AddressRandomization = "network";
+    wireless.iwd.settings = {
+      Network.EnableIPv6 = true;
+      General.AddressRandomization = "network";
+      Settings.AutoConnect = true;
+    };
   };
 }
