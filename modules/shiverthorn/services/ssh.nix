@@ -1,11 +1,6 @@
 {config, ...}: {
   services = {
     fail2ban.enable = true;
-    endlessh = {
-      enable = true;
-      port = 22;
-      openFirewall = true;
-    };
     openssh = {
       enable = true;
       ports = [6534];
@@ -15,7 +10,7 @@
         KbdInteractiveAuthentication = false;
         PermitRootLogin = "no";
         AllowUsers = [config.my.user];
-        AllowTcpForwarding = true;
+        AllowTcpForwarding = false;
         X11Forwarding = false;
         AllowAgentForwarding = false;
         AllowStreamLocalForwarding = false;

@@ -6,8 +6,10 @@
   environment = {
     gnome.excludePackages = with pkgs; [gnome-backgrounds gnome-tour gnome-user-docs];
     systemPackages = with pkgs; [
+      gnomeExtensions.user-themes
       gnomeExtensions.appindicator
       gnomeExtensions.caffeine
+      gnomeExtensions.blur-my-shell
 
       gnome-tweaks
       nautilus

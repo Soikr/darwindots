@@ -37,16 +37,16 @@
           private_browsing = true;
         };
         "addon@darkreader.org" = {
-          installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "normal_installed";
         };
         "sponsorBlocker@ajay.app" = {
-          install_url = "http://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
           installation_mode = "normal_installed";
         };
         "firefoxpwa@filips.si" = {
-          installation_mode = "normal_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/pwas-for-firefox/latest.xpi";
+          installation_mode = "normal_installed";
         };
       };
     };

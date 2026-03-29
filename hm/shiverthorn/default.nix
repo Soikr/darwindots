@@ -13,5 +13,8 @@
     stateVersion = "25.11";
   };
 
-  services.syncthing.enable = true;
+  services = {
+    mpris-proxy.enable = true;
+    syncthing.enable = true;
+  };
 }
