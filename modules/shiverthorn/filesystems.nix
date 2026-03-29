@@ -12,6 +12,7 @@
         "/var/lib/flatpak"
         "/var/lib/NetworkManager"
         "/var/lib/iwd"
+        "/var/lib/geoclue"
       ];
       files = [
         {

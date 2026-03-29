@@ -67,7 +67,6 @@
   ];
 
   services = {
-    automatic-timezoned.enable = true;
     power-profiles-daemon.enable = false;
     thermald.enable = true;
     auto-cpufreq = {
