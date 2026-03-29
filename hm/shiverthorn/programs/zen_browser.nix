@@ -44,10 +44,6 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
           installation_mode = "normal_installed";
         };
-        "firefoxpwa@filips.si" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/pwas-for-firefox/latest.xpi";
-          installation_mode = "normal_installed";
-        };
       };
     };
   };

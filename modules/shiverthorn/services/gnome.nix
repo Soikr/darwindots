@@ -10,6 +10,8 @@
       gnomeExtensions.appindicator
       gnomeExtensions.caffeine
       gnomeExtensions.blur-my-shell
+      gnomeExtensions.tiling-shell
+      gnomeExtensions.just-perfection
 
       gnome-tweaks
       nautilus
@@ -42,11 +44,5 @@
     };
   };
 
-  programs = {
-    seahorse.enable = true;
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "ptyxis";
-    };
-  };
+  programs.seahorse.enable = true;
 }

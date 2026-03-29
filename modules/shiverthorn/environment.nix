@@ -14,6 +14,7 @@
       gimp
       onlyoffice-desktopeditors
       davinci-resolve
+      blender-hip
       signal-desktop
       halloy
       prismlauncher

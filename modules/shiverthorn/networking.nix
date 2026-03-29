@@ -7,6 +7,9 @@
         backend = "iwd";
       };
     };
-    wireless.iwd.settings.General.AddressRandomization = "network";
+    wireless.iwd.settings = {
+      General.AddressRandomization = "network";
+      Scan.DisablePeriodicScan = false;
+    };
   };
 }

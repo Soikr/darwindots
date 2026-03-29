@@ -4,14 +4,14 @@
     preserveAt."/persist" = {
       directories = [
         "/etc/nixos"
-        "/etc/NetworkManager"
+        "/etc/NetworkManager/system-connections"
         {
           directory = "/var/lib/nixos";
           inInitrd = true;
         }
         "/var/lib/flatpak"
         "/var/lib/NetworkManager"
-        "/var/lib/bluetooth"
+        "/var/lib/iwd"
       ];
       files = [
         {
