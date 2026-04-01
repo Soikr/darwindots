@@ -14,6 +14,7 @@
       extraOptions = ["--group-directories-first"];
     };
     fzf.enable = true;
+    nix-index.enable = true;
     tealdeer = {
       enable = true;
       enableAutoUpdates = true;

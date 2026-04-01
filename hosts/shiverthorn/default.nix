@@ -68,6 +68,7 @@
       hashedPasswordFile = config.sops.secrets."shiverthorn/admin_passwd".path;
       isNormalUser = true;
       extraGroups = ["wheel" "networkmanager"];
+      shell = pkgs.zsh;
     };
   };
 

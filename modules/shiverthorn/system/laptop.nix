@@ -6,17 +6,13 @@
 
     thermald.enable = true;
 
-    auto-cpufreq = {
+    tlp = {
       enable = true;
       settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+        # Lock clocks to lowest state on Battery
+        RADEON_DPM_PERF_LEVEL_ON_BAT = "low";
       };
     };
   };

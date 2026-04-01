@@ -6,20 +6,19 @@
   environment = {
     defaultPackages = lib.mkForce [];
     systemPackages = with pkgs; [
-      jetbrains-toolbox
+      jetbrains.pycharm
       anki
       keepassxc
       inkscape
       krita
       gimp
       onlyoffice-desktopeditors
-      davinci-resolve
-      blender-hip
+      blender
+      shotcut
       signal-desktop
       halloy
       prismlauncher
       superTuxKart
-      ptyxis
 
       imhex
       radare2
@@ -44,17 +43,27 @@
       uv
       rsync
     ];
-    localBinInPath = true;
-  };
 
-  programs = {
-    obs-studio.enable = true;
-    steam.enable = true;
-    thunderbird.enable = true;
-    ghidra.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
+    shellAliases = {
+      ll = "eza -l";
+      la = "eza -a";
+      lla = "eza -al";
+
+      # Overrides
+      cat = "bat";
+
+      # Programs
+      g = "git";
+      py = "python";
+    };
+
+    variables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
     };
   };
+
+  fonts.packages = [
+    pkgs.nerd-fonts.jetbrains-mono
+  ];
 }

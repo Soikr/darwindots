@@ -3,6 +3,8 @@
     ./programs/git.nix
     ./programs/helix.nix
     ./programs/zen_browser.nix
+    ./programs/ghostty.nix
+    ./programs/zsh.nix
     ./utils.nix
   ];
 
