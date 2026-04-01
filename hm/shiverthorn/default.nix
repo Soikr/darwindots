@@ -18,5 +18,6 @@
   services = {
     mpris-proxy.enable = true;
     syncthing.enable = true;
+    ssh-agent.enable = true;
   };
 }

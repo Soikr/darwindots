@@ -3,7 +3,6 @@
     enable = true;
     preserveAt."/persist" = {
       directories = [
-        "/etc/nixos"
         "/etc/NetworkManager/system-connections"
         {
           directory = "/var/lib/nixos";
@@ -18,6 +17,16 @@
         {
           file = "/etc/machine-id";
           inInitrd = true;
+        }
+        {
+          file = "/etc/ssh/ssh_host_rsa_key.pub";
+          how = "symlink";
+          configureParent = true;
+        }
+        {
+          file = "/etc/ssh/ssh_host_rsa_key";
+          how = "symlink";
+          configureParent = true;
         }
         {
           file = "/etc/ssh/ssh_host_ed25519_key.pub";
