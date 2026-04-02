@@ -7,7 +7,7 @@
       enable = true;
       killUnconfinedConfinables = true;
     };
-    protectKernelImage = true;
+    # protectKernelImage = true;
   };
 
   boot = {
