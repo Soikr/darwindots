@@ -1,4 +1,4 @@
-{config, ...}: {
+{
   programs = {
     git = {
       enable = true;
@@ -40,6 +40,12 @@
       enableGitIntegration = true;
       options = {
         features = "decorations";
+      };
+    };
+    ssh.matchBlocks = {
+      "github.com" = {
+        addKeysToAgent = "yes";
+        identityFile = "~/.ssh/git";
       };
     };
   };

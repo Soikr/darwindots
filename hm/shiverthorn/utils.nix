@@ -27,5 +27,6 @@
         output = "~/Videos/YouTube/%(title)s.%(ext)s";
       };
     };
+    ssh.enable = true;
   };
 }

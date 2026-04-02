@@ -1,10 +1,7 @@
 # https://wiki.nixos.org/wiki/Laptop
 {lib, ...}: {
   services = {
-    logind.settings.Login = {
-      HandleLidSwitch = "suspend-then-hibernate";
-      HandleLidSwitchExternalPower = "suspend";
-    };
+    logind.settings.Login.HandleLidSwitchExternalPower = "suspend-then-hibernate";
 
     # Disable GNOME power profiles
     power-profiles-daemon.enable = lib.mkForce false;
@@ -22,5 +19,8 @@
     };
   };
 
-  systemd.sleep.extraConfig = "HibernateDelaySec=30m";
+  systemd = {
+    sleep.extraConfig = "HibernateDelaySec=30m";
+    services."systemd-suspend-then-hibernate".aliases = ["systemd-suspend.service"];
+  };
 }
