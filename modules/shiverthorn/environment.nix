@@ -39,8 +39,7 @@
       jq
       ripgrep
       fd
-      poetry
-      uv
+      python3
       rsync
     ];
 

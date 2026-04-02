@@ -41,18 +41,35 @@
       DontCheckDefaultBrowser = true;
 
       PromptForDownloadLocation = true;
+
+      # For whatever reason, tabs still persist even with this
       Homepage.StartPage = "none";
 
       Preferences = {
+        "zen.welcome-screen.seen" = true;
+        "zen.watermark.enabled" = false;
+
         "browser.tabs.warnOnClose" = {
           Value = false;
           Status = "default";
+        };
+
+        # For whatever reason, tabs still persist even with this
+        "browser.sessionstore.resume_from_crash" = {
+          "Value" = false;
+          "Status" = "default";
+        };
+        "browser.sessionstore.resume_session_once" = {
+          "Value" = false;
+          "Status" = "default";
         };
 
         "general.autoScroll" = {
           Value = true;
           Status = "default";
         };
+
+        # Didn't work for me? Test later
         "general.smoothScroll" = {
           Value = false;
           Status = "default";

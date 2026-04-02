@@ -2,12 +2,17 @@
 # https://xeiaso.net/blog/paranoid-nixos-2021-07-18
 {
   security = {
-    sudo.execWheelOnly = true;
+    sudo = {
+      execWheelOnly = true;
+
+      # Sudo always shows lecture due to rollback
+      # Useless to me anyways
+      extraConfig = "Defaults lecture = never";
+    };
     apparmor = {
       enable = true;
       killUnconfinedConfinables = true;
     };
-    # protectKernelImage = true;
   };
 
   boot = {
