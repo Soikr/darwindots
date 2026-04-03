@@ -1,9 +1,9 @@
 <h1 align=center>
-❄️ Soikr's Unixdots! ✨
+❄️ Soikr's Flakedots! ✨
 </h1>
 
 <div align=center>
-I hope my configuration finds you well, its intended to be simple even while integrating more complicated configurations like sops and impermanence.
+Flake-based system dotfiles intended to be simple even while integrating more complicated configurations like sops and impermanence.
 <br><br>
 Preview of my MacOS host "snowmalus"
 </div>
@@ -54,7 +54,7 @@ This is mostly instructions just for my future self. Instructions remain largely
    
    ```bash
    nix shell --extra-experimental-features 'nix-command flakes' nixpkgs#git nixpkgs#helix
-   git clone git@github.com:Soikr/darwindots.git /etc/nix-darwin
+   git clone git@github.com:Soikr/flakedots.git /etc/nix-darwin
    cd /etc/nix-darwin
    ```
 
