@@ -2,13 +2,13 @@
   environment = {
     systemPackages = with pkgs; [
       raycast
-      jetbrains-toolbox
+      jetbrains.pycharm
       utm
       anki-bin
       android-tools
       keepassxc
       inkscape
-      signal-desktop
+      signal-desktop-bin
       halloy
       prismlauncher
 
@@ -23,6 +23,7 @@
       mitmproxy
       wget
 
+      python3
       ffmpeg
       imagemagick
       sshfs
@@ -31,8 +32,6 @@
       jq
       ripgrep
       fd
-      poetry
-      rojo
 
       # xquartz # fixed, keep an eye out next release
       keka
@@ -50,7 +49,6 @@
 
       # Programs
       g = "git";
-      po = "poetry";
       py = "python";
 
       # Nix

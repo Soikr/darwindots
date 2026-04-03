@@ -17,7 +17,5 @@
       cleanup = "zap";
       upgrade = true;
     };
-
-    caskArgs.no_quarantine = true;
   };
 }

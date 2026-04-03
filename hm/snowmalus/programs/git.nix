@@ -42,5 +42,11 @@
         features = "decorations";
       };
     };
+    ssh.matchBlocks = {
+      "github.com" = {
+        addKeysToAgent = "yes";
+        identityFile = "~/.ssh/git";
+      };
+    };
   };
 }

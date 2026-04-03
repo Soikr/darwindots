@@ -1,69 +1,87 @@
-<h1 align="center"> 
-Soikr's Darwindots (Soon Monorepo)!
+<h1 align=center>
+❄️ Soikr's Unixdots! ✨
 </h1>
 
-![Preview](./preview.png)
-<p align="center"> A usable, performance oriented, and practical setup (2013 iMac)</p>
+<div align=center>
+I hope my configuration finds you well, its intended to be simple even while integrating more complicated configurations like sops and impermanence.
+<br><br>
+Preview of my MacOS host "snowmalus"
+</div>
 
-# Installation (NEEDS TO BE REWORKED)
+![Snowmalus](./preview.png)
 
-### 1. Installing nix (lix):
-```shell
-curl -sSf -L https://install.lix.systems/lix | sh -s -- install
+---
+
+## Structure
+
+```bash
+.
+├── hm
+│   ├── shiverthorn
+│   └── snowmalus
+├── hosts
+│   ├── shiverthorn
+│   ├── snowmalus
+│   └── winterberry
+└── modules
+    ├── shiverthorn
+    ├── snowmalus
+    └── winterberry
 ```
 
-### 2. Clone the repo into a designated spot in your home folder (ie. ~/.nixpgs):
+I always build my systems starting with the **hosts** folder first. This is where I define systems just to get them deployable so I can configure them at a greater level later.
 
-```shell
-nix shell --extra-experimental-features 'nix-command flakes' nixpkgs#git nixpkgs#vim
-git clone https://github.com/SoiKr/darwindots ~/.nixconf
-cd ~/.nixconf
-```
+I define the rest of the system in the **modules** folder, such as the environment and programs.
 
-### 3. Edit the configuration, especially the username and hostname
+For any user-level configurations, I use the **hm** folder to define Home Manager options.
 
-> [!IMPORTANT]  
-> Dont forget to set your system hostname and user to this.
+Additionally, I configure my sops secrets in a private repo.
 
-### 4. Setting up nix-darwin and applying the config:
+This configuration is not static and will change. Generally, I try to separate the configurations of each system as much as possible for simplicity, but I do want to have some shared module in the future.
 
-```shell
-sudo nix run nix-darwin/master#darwin-rebuild -- switch .#
-```
-> [!NOTE]  
-> It may error due to missing XCode, you might have to install this.
-> 
-> Its too inconsistent to install through Nix.
+## Installation
 
-Please reboot after this.
+This is mostly instructions just for my future self. Instructions remain largely incomplete as of now.
 
-## Applying changes from the config
-```shell
-darwin-rebuild switch --flake ~/.nixconf
-```
+> [!CAUTION]
+> Running these will most definitely **NOT** work for you. My configurations are specifically designed to work on my systems.
 
-## Updating
-```shell
-nix flake update # All Inputs
-nix flake lock --update-input <input> # Single  Input
-```
+### Snowmalus (MacOS Desktop)
 
-### Preset ZSH Aliases for managing nix:
-```
-dr = darwin-rebuild switch --flake ~/.nixconf # Darwin
-nim = "vim ~./.nixconf"
-nsearch = "nix search nixpkgs"
-ngc = "nix-collect-garbage -d && && nix store optimise"
-nv = "nix store verify"
-```
+1. Install [lix](https://lix.systems/)
 
-## Additional configuration steps:
-1. Initialize a rustup toolchain. (ie. `rustup toolchain install stable`)
-2. Configure Zen Browser, Tailscale, Syncthing, Discord
-3. Launch Raycast, KeePassXC
-4. Set wallpaper
+2. Clone repo to /etc/nix-darwin
+   
+   ```bash
+   nix shell --extra-experimental-features 'nix-command flakes' nixpkgs#git nixpkgs#helix
+   git clone git@github.com:Soikr/darwindots.git /etc/nix-darwin
+   cd /etc/nix-darwin
+   ```
+
+3. Set up nix-darwin and apply configuration
+   
+   ```bash
+   sudo nix run nix-darwin/master#darwin-rebuild -- switch .#snowmalus
+   ```
+
+### Shiverthorn (NixOS Laptop)
+
+* Intended to be deployable through [nixos-anywhere](https://nix-community.github.io/nixos-anywhere/)
+  
+  * Must passthrough disk-encryption-key to /tmp/secret.key
+  
+  * Define --extra-files to push ssh keys to /persist/etc/ssh/
+
+### Winterberry (NixOS Server)
+
+* Configuration halted for now
 
 ## Resources
+
+I am trying to move to citing where I found what in some of my more complicated configurations, this resource list is somewhat outdated now that it encompasses NixOS systems as well.
+
+### MacOS Resources
+
 [nix-darwin Page](https://github.com/LnL7/nix-darwin/tree/master)
 
 [nix-darwin Options](https://daiderd.com/nix-darwin/manual/index.html)
@@ -75,7 +93,7 @@ nv = "nix store verify"
 [Sketchybar Guide](https://felixkratz.github.io/SketchyBar)
 
 ## Credits
+
 Code formatted with [Alejandra](https://github.com/kamadorueda/alejandra)
-  - You can do this with `nix fmt`
 
 Thanks for all the public github repos and software (I couldn't list every resource here) <3

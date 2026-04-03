@@ -5,11 +5,5 @@
     ./zsh.nix
   ];
 
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    nix-index.enable = true;
-  };
+  programs.nix-index.enable = true;
 }
