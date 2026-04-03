@@ -44,6 +44,7 @@
     };
     ssh.matchBlocks = {
       "github.com" = {
+        UseKeychain = "yes";
         addKeysToAgent = "yes";
         identityFile = "~/.ssh/git";
       };

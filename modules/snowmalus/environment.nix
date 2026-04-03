@@ -8,7 +8,6 @@
       android-tools
       keepassxc
       inkscape
-      signal-desktop-bin
       halloy
       prismlauncher
 

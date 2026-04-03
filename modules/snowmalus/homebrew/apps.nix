@@ -16,6 +16,7 @@
       "zen" # auto
       "notion" # auto
       "monal" # noauto
+      "signal" # auto
       "pear-desktop" # until pear-desktop on nix
 
       "steam" # auto
