@@ -14,7 +14,7 @@
     ...
   }: {
     darwinConfigurations."snowmalus" = darwin.lib.darwinSystem {
-      specialArgs = {inherit self;};
+      specialArgs = {inherit inputs self;};
 
       modules = [
         brew.darwinModules.nix-homebrew

@@ -2,6 +2,7 @@
   self,
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -16,10 +17,14 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {user = config.my.user;};
+    extraSpecialArgs = {
+      inherit inputs;
+      user = config.my.user;
+    };
 
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [inputs.sops.homeManagerModules.sops];
     users.${config.my.user} = import ../../hm/snowmalus;
   };
 

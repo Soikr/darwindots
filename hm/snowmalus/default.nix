@@ -4,6 +4,8 @@
     ./programs/git.nix
     ./programs/ghostty.nix
     ./programs/helix.nix
+    ./programs/ssh.nix
+    ./sops.nix
     ./utils.nix
   ];
 

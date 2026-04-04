@@ -73,11 +73,13 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {user = config.my.user;};
+    extraSpecialArgs = {
+      inherit inputs;
+      user = config.my.user;
+    };
 
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs;};
     sharedModules = [inputs.zen-browser.homeModules.beta];
     users.${config.my.user} = import ../../hm/shiverthorn;
   };

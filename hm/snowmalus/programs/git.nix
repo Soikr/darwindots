@@ -2,19 +2,23 @@
   programs = {
     git = {
       enable = true;
-      signing = {
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOOpnM2LX8mRI11m1NIq6xLHPlj1MzhaUmD5sEb39nQb Soikr@proton.me";
-        signByDefault = true;
-      };
+      signing.signByDefault = true;
       ignores = [
         ".DS_Store"
         "result"
       ];
+
+      includes = [
+        {
+          path = config.sops.secrets.github_public_config.path;
+        }
+        {
+          path = config.sops.secrets.github_work_config.path;
+          condition = "gitdir:${config.home.homeDirectory}/Documents/Work/";
+        }
+      ];
+
       settings = {
-        user = {
-          name = "Soikr";
-          email = "Soikr@proton.me";
-        };
         alias = {
           cm = "commit";
           co = "checkout";
@@ -44,9 +48,17 @@
     };
     ssh.matchBlocks = {
       "github.com" = {
-        UseKeychain = "yes";
+        extraOptions.UseKeychain = "yes";
         addKeysToAgent = "yes";
-        identityFile = "~/.ssh/git";
+        compression = true;
+        identityFile = "${config.home.homeDirectory}/.ssh/git_auth";
+      };
+      "github.com-work" = {
+        hostname = "github.com";
+        extraOptions.UseKeychain = "yes";
+        addKeysToAgent = "yes";
+        compression = true;
+        identityFile = "${config.home.homeDirectory}/.ssh/git_work_auth";
       };
     };
   };
