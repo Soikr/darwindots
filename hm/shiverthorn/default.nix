@@ -5,6 +5,8 @@
     ./programs/zen_browser.nix
     ./programs/ghostty.nix
     ./programs/zsh.nix
+    ./programs/ssh.nix
+    ./sops.nix
     ./utils.nix
   ];
 

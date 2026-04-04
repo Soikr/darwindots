@@ -80,7 +80,10 @@
 
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [inputs.zen-browser.homeModules.beta];
+    sharedModules = [
+      inputs.sops.homeManagerModules.sops
+      inputs.zen-browser.homeModules.beta
+    ];
     users.${config.my.user} = import ../../hm/shiverthorn;
   };
 
