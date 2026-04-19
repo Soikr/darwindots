@@ -3,7 +3,7 @@
   # I look for `auto_updates: true` in cask code.
   #
   # noauto means the cask only updates through brew.
-  # I look for `auto_updates: false` in cask code.
+  # I look for `auto_updates: false` or null in cask code.
   #
   # There is really no point in differentiating this.
   # But you know what apps will update from `brew update`.
@@ -26,6 +26,7 @@
 
       "krita" # noauto
       "gimp" # noauto
+      "shotcut" # noauto
       "godot" # noauto
       "roblox" # auto
       "robloxstudio" # auto
@@ -40,6 +41,8 @@
       "notunes" # noauto
       "xquartz" # auto, remove when nix fix
       "apple-hewlett-packard-printer-drivers" # noauto
+
+      "tailscale-app" # Temporary
     ];
   };
 }
