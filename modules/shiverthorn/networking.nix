@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   networking = {
     networkmanager = {
       enable = true;
@@ -6,6 +6,9 @@
         powersave = true;
         backend = "iwd";
       };
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
     };
     wireless.iwd.settings = {
       General.AddressRandomization = "network";
